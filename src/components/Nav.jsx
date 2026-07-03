@@ -10,12 +10,12 @@ function Nav() {
 
     return (
         <div>
+
             <nav className='navbar'>
-                <ul>
-                    <li><Link className='active' to="/">Home</Link></li>
-                    <li><Link className='active' to="/about">About</Link> </li>
-                    <li><Link className='active' to="/contact">Contact</Link></li>
-                </ul>
+
+
+                <h2>LMS   <span>Learning Management System</span></h2>
+
 
                 <ThemeToggle />
 
