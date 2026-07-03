@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 
 
-function Card({ data }) {
+export const Card = ({data}) => {
 
     return (
         <div className='card-container'>
@@ -42,4 +42,4 @@ function Card({ data }) {
     )
 }
 
-export default Card
+

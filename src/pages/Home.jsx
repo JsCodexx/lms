@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Nav from '../components/Nav'
 import { studentData } from '../api/dashboard'
-import Card from '../components/dashboard/Card';
+import { Card } from '../components/Card';
 
 function Home() {
   const [data, setData] = useState("");
