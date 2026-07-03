@@ -140,3 +140,57 @@ span {
 .heading {
   padding-left: 10px;
 }
+.login {
+  margin-left: 600px;
+  background: transparent;
+  font-size: large;
+  border-radius: 10px;
+}
+table,
+th,
+td {
+  border: 2px solid grey;
+  border-collapse: collapse;
+}
+table {
+  width: 100%;
+}
+th,
+td {
+  /* background-color: #96d4d4; */
+  text-align: center;
+}
+.viewProfile {
+  width: 100px;
+  height: 25px;
+  background: green;
+  color: white;
+}
+.detailedImage {
+  width: 70%;
+  padding-left: 70px;
+}
+.image {
+  border: 2px solid grey;
+  width: 30%;
+  height: 300px;
+  margin-left: 40px;
+  background: transparent;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 100%;
+}
+.userDetails {
+  display: flex;
+  justify-content: space-around;
+}
+.about {
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.main {
+  border: 2px solid rgba(128, 128, 128, 0.479);
+  padding-left: 30px;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15);
+}
