@@ -16,7 +16,7 @@ export default function Singleuser() {
     }
     useEffect(() => {
         getSingleData()
-    }, [])
+    }, [id])
     return (
         <div>
             <Nav />
