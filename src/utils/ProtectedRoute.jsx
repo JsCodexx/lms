@@ -1,5 +1,8 @@
-import { Outlet, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useEffect } from "react";
+
+import Home from "../pages/Home";
+
 
 const ProtectedRoutes = ({ user }) => {
 
@@ -13,7 +16,7 @@ const ProtectedRoutes = ({ user }) => {
 
     }
 
-    return activeUser ? <Outlet /> : <Navigate to="/login" replace />;
+    return activeUser ? <Home to="/" /> : <Navigate to="/login"  />;
 };
 
 export default ProtectedRoutes;
