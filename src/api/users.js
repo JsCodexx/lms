@@ -4,6 +4,9 @@ import { useParams } from "react-router-dom";
 export const userData = async () => {
   try {
     const res = await axios.get("https://dummyjson.com/users");
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`;
+    }
     const users = res;
     // console.log(users, "users");
     return res.data.users;
@@ -16,7 +19,10 @@ export const userData = async () => {
 
 export const SingleUserData = async (id) => {
   try {
-    const res = await axios.get(`https://dummyjson.com/users/1`);
+    const res = await axios.get(`https://dummyjson.com/users/2`);
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`;
+    }
     const users = res;
     console.log(users, "users");
     return res.data;

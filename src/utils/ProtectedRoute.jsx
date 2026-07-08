@@ -1,22 +1,23 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { useEffect } from "react";
 
 import Home from "../pages/Home";
 
 
-const ProtectedRoutes = ({ user }) => {
+const ProtectedRoutes = () => {
 
-    const activeUser = user || JSON.parse(localStorage.getItem("user"));
+    // const activeUser = user || JSON.parse(localStorage.getItem("user"));
 
-    console.log("Active User Status:", activeUser);
+    // console.log("Active User Status:", activeUser);
 
 
-    if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
+    // if (user) {
+    //     localStorage.setItem("user", JSON.stringify(user));
 
-    }
+    // }
+    const token = localStorage.getItem("token");
 
-    return activeUser ? <Home to="/" /> : <Navigate to="/login"  />;
+    return token ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoutes;

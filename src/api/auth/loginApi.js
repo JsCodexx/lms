@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const loginApi = async (username,password) => {
-  console.log(username,password)
+export const loginApi = async (username, password) => {
+  console.log(username, password);
   try {
     const res = await axios.post(
       "https://dummyjson.com/user/login",
@@ -12,12 +12,9 @@ export const loginApi = async (username,password) => {
       },
       {
         headers: {
-          // Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
         },
-      
       },
-      
     );
 
     console.log(res, "js res");
