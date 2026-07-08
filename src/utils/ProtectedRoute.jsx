@@ -6,13 +6,6 @@ import Home from "../pages/Home";
 
 const ProtectedRoutes = () => {
 
-    // const activeUser = user || JSON.parse(localStorage.getItem("user"));
-
-    // console.log("Active User Status:", activeUser);
-
-
-    // if (user) {
-    //     localStorage.setItem("user", JSON.stringify(user));
 
     // }
     const token = localStorage.getItem("token");

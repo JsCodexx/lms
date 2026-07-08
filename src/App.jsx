@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import ProtectedRoutes from './utils/ProtectedRoute.jsx';
 import { useEffect, useState } from 'react';
 import Singleuser from './pages/Singleuser.jsx';
+import Wrapper from './components/Wrapper.jsx';
 
 
 
@@ -33,9 +34,16 @@ function App() {
 
 
 
-            <Route path='/login' element={<Login />} />
+            <Route
+              path="/login"
+              element={
+               
+                  <Login />
+                
+              }
+            />
 
-            <Route element={<ProtectedRoutes  />}>
+            <Route element={<ProtectedRoutes />}>
               <Route path="/" element={
                 <Home />
               } />
