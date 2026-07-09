@@ -13,26 +13,19 @@ export default function Login() {
 
 
 
-    // const getData =
-    //     async () => {
-    //         const student = await loginApi();
-    //         console.log("res", student)
-    //         setData(student);
-    //         localStorage.setItem("token", JSON.stringify(student))
-
-
-
-    //     }
-    // useEffect(() => {
-    //     getData()
-    // }, [])
     const navigate = useNavigate()
     async function handleSubmit(e) {
         e.preventDefault()
         console.log(username, password, "data")
-        const correctData = await loginApi(username, password);
-        console.log(correctData, "correct")
-        if (correctData) {
+        const correctData1 = await loginApi(username, password);
+        const { refreshToken, ...correctData } = correctData1;
+        console.log(correctData1)
+
+        localStorage.setItem("token", JSON.stringify(correctData));
+         
+        sessionStorage.setItem("refreshToken", refreshToken);
+
+        if (correctData1) {
             navigate("/")
         }
         else {
@@ -40,11 +33,6 @@ export default function Login() {
         }
 
     }
-
-
-
-
-
 
     return (
         <div style={{ maxWidth: '400px', height: "350px", margin: '50px auto', padding: '20px', border: '1px solid #ccc' }}>

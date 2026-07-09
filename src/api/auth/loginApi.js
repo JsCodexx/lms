@@ -8,12 +8,13 @@ export const loginApi = async (username, password) => {
       {
         username: username,
         password: password,
-        expiresInMins: 30,
+        expiresInMins: 50,
       },
       {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: true,
       },
     );
 
@@ -24,3 +25,5 @@ export const loginApi = async (username, password) => {
     throw err;
   }
 };
+
+

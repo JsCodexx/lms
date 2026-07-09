@@ -10,20 +10,19 @@ function Nav() {
     console.log("theme", theme)
 
     const activeUser = localStorage.getItem("token");
-    if (activeUser) {
-        try {
-            const userObject = JSON.parse(activeUser);
-            const username = userObject.username
-            console.log(username)
-            useEffect(() => {
-                setuser(username)
-            })
 
-        } catch (error) {
 
-        }
+    const userObject = JSON.parse(activeUser);
+    const username = userObject.username
+    console.log(username)
+    useEffect(() => {
+        setuser(username)
+    })
 
-    }
+
+
+
+
 
     return (
         <div>
