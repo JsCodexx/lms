@@ -9,14 +9,15 @@ function Nav() {
     const theme = useContext(UserContext)
     console.log("theme", theme)
 
-    const activeUser = localStorage.getItem("token");
+    const activeUser = localStorage.getItem("username");
+    console.log(activeUser,"activeusers")
 
 
-    const userObject = JSON.parse(activeUser);
-    const username = userObject.username
-    console.log(username)
+    // const userObject = (activeUser);
+    // const username = userObject.username
+    // console.log(username)
     useEffect(() => {
-        setuser(username)
+        setuser(activeUser)
     })
 
 

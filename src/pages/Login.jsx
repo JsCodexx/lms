@@ -16,13 +16,15 @@ export default function Login() {
     const navigate = useNavigate()
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(username, password, "data")
+        // console.log(username, password, "data")
         const correctData1 = await loginApi(username, password);
         const { refreshToken, ...correctData } = correctData1;
+        const { user, ...userData } = correctData1
         console.log(correctData1)
 
-        localStorage.setItem("token", JSON.stringify(correctData));
-         
+        localStorage.setItem("token", JSON.stringify(correctData.accessToken));
+        localStorage.setItem("username", username);
+
         sessionStorage.setItem("refreshToken", refreshToken);
 
         if (correctData1) {

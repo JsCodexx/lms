@@ -59,6 +59,7 @@ function About() {
             <Nav />
             <AddStudentForm addStudent={addStudent} />
             <h1>Students Data </h1>
+            
             <Loaders show={loading} />
             <Studentstable user={students} />
             <Footer />

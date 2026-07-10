@@ -26,7 +26,7 @@ export const SingleUserData = async (id) => {
   const userData = localStorage.getItem("token");
 
   try {
-    const res = await axios.get(`https://dummyjson.com/users/2`, {
+    const res = await axios.get(`https://dummyjson.com/users/${id}`, {
       headers: {
         Authorization: `Bearer ${userData}`,
       },
@@ -45,7 +45,7 @@ export const SingleUserData = async (id) => {
 
 export const refreshToken = async () => {
   const refreshData = sessionStorage.getItem("refreshToken");
-  console.log(refreshData)
+  console.log(refreshData);
 
   try {
     const refreshRes = await axios.post(
