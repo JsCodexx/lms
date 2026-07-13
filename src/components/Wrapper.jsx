@@ -5,7 +5,7 @@ export default function Wrapper({ children }) {
     console.log(children)
     const isAuthenticated = localStorage.getItem("token");
     if (isAuthenticated) {
-        return <Navigate to="/about" replace />
+        return <Navigate to="/" replace />
     }
     return children
     return (

@@ -15,7 +15,8 @@ export default function Studentstable({ user }) {
     const filterData = user.filter((data) => {
         var searched = search.toUpperCase()
         var userName = data?.firstName?.toUpperCase()
-        return userName.includes(searched)
+        console.log(userName)
+        return userName?.includes(searched)
     })
     return (
         <div>

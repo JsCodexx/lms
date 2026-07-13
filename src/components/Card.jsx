@@ -1,17 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const Card = ({data}) => {
+export const Card = ({ data }) => {
 
     return (
         <div className='card-container'>
-            
+
             {/* sidebar */}
             <div className='sideBar'>
                 <ul>
                     <li><Link className='active' to="/">Home</Link></li>
                     <li><Link className='active' to="/about">Students</Link> </li>
-                    <li><Link className='active' to="/contact"> Post</Link></li>
+                    {/* <li><Link className='active' to="/contact:id"> Post</Link></li> */}
+                    <li><Link className='active' to="/posts"> Post</Link></li>
                 </ul>
             </div>
             {/* card-1 */}
