@@ -37,40 +37,47 @@ export default function Login() {
     }
 
     return (
-        <div style={{ maxWidth: '400px', height: "350px", margin: '50px auto', padding: '20px', border: '1px solid #ccc' }}>
-            <h2>Login</h2>
+        <>
+        <h1 style={{color:"black"}}>LMS</h1>
+            <div style={{ maxWidth: '400px', height: "350px", margin: '50px auto', padding: '20px', border: '1px solid #ccc',backgroundColor:"#875df4" }}>
+
+              
 
 
-            <form style={{ display: 'flex', flexDirection: 'column', width: "300px" }} onSubmit={handleSubmit} >
-                <div style={{ marginBottom: '15px' }}>
-                    <label>Username:</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => { setusername(e.target.value) }}
-                        required
 
-                        style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-                    />
-                </div>
+                <form style={{ display: 'flex', flexDirection: 'column', width: "300px" }} onSubmit={handleSubmit} >
+                    <div style={{ marginBottom: '15px' }}>
 
-                <div style={{ marginBottom: '15px' }}>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => { setpassword(e.target.value) }}
+                        <label>Username:</label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => { setusername(e.target.value) }}
+                            required
 
-                        required
+                            style={{ width: '100%', padding: '8px', marginTop: '5px',borderRadius:"10px" , border:"transparent" }}
+                        />
+                    </div>
 
-                        style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-                    />
-                </div>
+                    <div style={{ marginBottom: '15px' }}>
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => { setpassword(e.target.value) }}
 
-                <button type='submit' style={{ width: '100%', padding: '10px' }}>
-                    login
-                </button>
-            </form>
-        </div>
+                            required
+
+                            style={{ width: '100%', padding: '8px', marginTop: '5px',borderRadius:"10px", border:"transparent" }}
+                        />
+                    </div>
+
+                    <button type='submit' style={{ width: '50%',cursor:"pointer", border:"transparent", padding: '10px',marginLeft:"70px",fontSize:"20px", backgroundColor:"white",fontWeight:"bolder" }}>
+                        login
+                    </button>
+                </form>
+
+            </div >
+        </>
     );
 }

@@ -4,8 +4,8 @@ const Loaders = ({ show }) => {
     return (
         show && (
             <div className="text-center">
-                <h1 className="loader"></h1>
-                
+                <div className="loader"></div>
+
             </div>
         )
     );

@@ -74,9 +74,9 @@ export default function StudentPage({ user }) {
         <>  <Nav />
             <h2 style={{ marginLeft: "80px" }}>Student Profile</h2>
             <Loaders show={loading} />
-            <div style={{ display: "flex", gap: "50px" }}>
-                <div style={{ boxShadow: "0 15px 10px rgba(0, 0, 0, 0.15)", backgroundColor: "white", width: "300px", height: "400px", marginLeft: "80px" }}>
-                    <div style={{ marginTop: '20px', display: "flex", flexDirection: "column", gap: "05px", marginLeft: '80px', }}>
+            <div className='alpha'>
+                <div  className='betta'>
+                    <div className='gamma' >
                         <button className='buttonPost' onClick={() => { handlePostButton(data.id) }}>
                             <img src="/src/assets/profileIcon.webp" alt="" style={{ width: "120px", paddingLeft: "0px", paddingTop: "30px" }} />
                         </button>
@@ -86,11 +86,11 @@ export default function StudentPage({ user }) {
                         <h5 >bc260213343was@vu.edu.pk</h5>
                     </div>
                 </div>
-                <div style={{ padding: '0px', maxWidth: '500px' }}>
-                    <div style={{ boxShadow: "0 15px 10px rgba(0, 0, 0, 0.15)", backgroundColor: "#ffffff", width: "800px", height: "400px" }}>
+                <div className='delta'>
+                    <div className='elpha' >
 
 
-                        <div style={{ display: 'flex', flexDirection: 'row', gap: '03px', paddingTop: "20px", paddingLeft: "30px", }}>
+                        <div className='fifa' >
 
 
                             <button
@@ -119,11 +119,11 @@ export default function StudentPage({ user }) {
                         </div>
 
 
-                        <div style={{ border: '1px solid #ccc', paddingLeft: '150px', marginTop: "10px", height: "300px", marginLeft: "30px", marginRight: "30px" }}>
+                        <div className='giga' >
 
 
                             {currentTab === 'profile' && (
-                                <div>
+                                <div className='man'>
                                     <h4>Name: {data.firstName}</h4>
                                     <p><b>Age:{data.age}</b></p>
                                     <h4>Gender: {data.gender}</h4>

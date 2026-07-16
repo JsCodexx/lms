@@ -3,11 +3,14 @@ body {
   font-family: sans-serif;
   transition: background-color 0.3s ease;
   background-color: #f2f3f8;
+
+  overflow-x: hidden;
 }
 h1 {
   text-align: center;
   font-size: 50px;
   font-family: Arial, Helvetica, sans-serif;
+  color: transparent;
 }
 .container {
   max-width: 1440px;
@@ -34,6 +37,52 @@ ul {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
 }
+.alpha {
+  display: flex;
+  gap: 50px;
+}
+.betta {
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  width: 300px;
+  height: 400px;
+  margin-left: 80px;
+}
+.gamma {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 05px;
+  margin-left: 80px;
+}
+.delta {
+  padding: 0px;
+  width: 500px;
+}
+.elpha {
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15);
+  background-color: #ffffff;
+  width: 800px;
+  height: 400px;
+}
+.fifa {
+  display: flex;
+  flex-direction: row;
+  gap: 03px;
+  padding-top: 20px;
+  padding-left: 30px;
+}
+.giga {
+  border: 1px solid #ccc;
+  padding-left: 80px;
+  margin-top: 10px;
+  height: 300px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+/* .man{
+  
+} */
 .theme {
   width: 100px;
   height: 30px;
@@ -45,6 +94,7 @@ ul {
   font-size: 15px;
   color: grey;
 }
+
 /* button:hover {
   border: 1px solid white;
   background: black;
@@ -127,27 +177,15 @@ h3 {
 }
 
 .sideBar {
-  /* width: 202px;
-  height: 807px;
-  background: #282a3c;
-  text-align: start;
-  padding-right: 30px; */
-  /* position: fixed; */
-
   width: 202px;
   height: 807px;
   background: #282a3c;
   text-align: start;
-
-  /* z-index: 1000;
-    transform: translateX(-100%);
-  transition: transform 0.3s ease; */
 }
-.proof{
- 
+.proof {
   cursor: pointer;
 }
-.proof:hover{
+.proof:hover {
   color: greenyellow;
 }
 .sidebar.active {
@@ -160,11 +198,14 @@ h3 {
 }
 
 .sideIcon {
-  margin-top: 20px;
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
   /* gap: 60px; */
   margin-left: 25px;
+}
+.sideImage {
+  padding-top: 3px;
 }
 .menu-btn {
   font-size: 24px;
@@ -181,7 +222,7 @@ h3 {
 
   height: 807px;
   margin: 0px;
-  padding: 0px;
+  padding-top: 20px;
   text-align: start;
 }
 .close-btn {
@@ -198,9 +239,9 @@ h3 {
   color: white;
 
   text-decoration: none;
-  padding-left: 0px;
-  padding-top: 25px;
-  padding-right: 0px;
+ 
+  padding-top: 27px;
+
 }
 .overlay {
   position: fixed;
@@ -231,21 +272,27 @@ span {
   font-size: large;
   border-radius: 10px;
 }
-table,
+table {
+  width: 100%;
+  /* max-width: 1000px; */
+  margin: 20px auto;
+  /* border-collapse: collapse; */
+  overflow-x: auto;
+  /* display: block; */
+}
+
 th,
 td {
   border: 2px solid rgba(128, 128, 128, 0.507);
-  border-collapse: collapse;
-  color: grey;
+  color: black;
+  padding: 12px;
+  text-align: left;
 }
-table {
-  width: 100%;
-}
-th,
+/* th,
 td {
-  /* background-color: #96d4d4; */
+  background-color: #96d4d4;
   text-align: center;
-}
+} */
 .viewProfile {
   width: 100px;
   height: 25px;
@@ -285,7 +332,7 @@ td {
   height: 30px;
 }
 form {
-  margin-left: 20px;
+  margin-left: 40px;
   display: flex;
   gap: 20px;
   height: 30px;
@@ -298,11 +345,11 @@ form {
   border-radius: 10px;
   cursor: pointer;
 }
-p {
+/* p {
   margin: 0px;
-  margin-top: 30px;
+  padding-top: 20px;
   font-size: 20px;
-}
+} */
 .dropdown-menu {
   background: #7c5cc4;
   height: 90px;
@@ -377,6 +424,7 @@ p {
   font-family:
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
+  margin-right: 70px;
 }
 .lorem {
   margin: 0px;
@@ -533,10 +581,14 @@ p {
 .tagButton:hover {
   color: #7c5cc4;
 }
+p {
+  margin: 0px;
+  padding: 0px;
+}
 
 #menuBtn {
   cursor: pointer;
-  background: #7c5cc4;
+  background: transparent;
   height: 40px;
   width: 40px;
   margin-left: 10px;
@@ -545,14 +597,26 @@ p {
   font-size: 15px;
 
   padding-bottom: 25px;
+  margin-top: 6px;
 }
 #closeBtn {
   cursor: pointer;
-  background: #7c5cc4;
+  background: transparent;
   color: white;
   margin-left: 50px;
+  font-size: 20px;
+  height: 40px;
+  margin-top: 6px;
 }
 
+/* #closeBtn:hover {
+  color: #7c5cc4;
+  background: white;
+} */
+/* #menuBtn:hover {
+  color: #7c5cc4;
+  background: white;
+} */
 @media screen and (max-width: 450px) {
   h2 {
     font-size: 30px;
@@ -595,15 +659,84 @@ p {
     width: 93%;
     margin-left: 10px;
   }
-  .superman {
-    width: 98%;
+  .super {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    display: flex;
   }
+
+  .mainFotter,
+  .usefull {
+    width: 80%;
+    height: 250px;
+  }
+
   .lms {
-    font-size: 30px;
-    margin-right: 30px;
+    font-size: 45px;
   }
-  .lorem {
-    font-size: 15px;
-    width: 100px;
+
+  .pad {
+    font-size: 20px;
+  }
+
+  .copy {
+    font-size: 14px;
+  }
+
+  .mainFotter img:nth-child(1) {
+    width: 45px;
+  }
+
+  .mainFotter img:nth-child(2) {
+    width: 35px;
+  }
+
+  .mainFotter img:nth-child(3) {
+    width: 50px;
+  }
+  .sideOpen {
+    height: auto;
+  }
+  .menu-links {
+    height: 960px;
+  }
+  body {
+    overflow-x: hidden;
+  }
+  .love {
+    padding-bottom: 40px;
+  }
+  .sideImage {
+    padding-bottom: 30px;
+  }
+  .sideIcon {
+    padding-bottom: 0px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 10px;
+  }
+  .userData {
+    margin: 10px;
+    width: 72%;
+  }
+  .alpha {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  .elpha {
+    width: 400px;
+    text-align: start;
+  }
+  .giga {
+    padding-right: 20pxs;
+  }
+  .betta {
+    margin-left: 30px;
   }
 }
