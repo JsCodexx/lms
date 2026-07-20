@@ -10,20 +10,20 @@ function Nav() {
     console.log("theme", theme)
 
     const activeUser = localStorage.getItem("token");
+    if (activeUser) {
+        try {
+            const userObject = JSON.parse(activeUser);
+            const username = userObject.username
+            console.log(username)
+            useEffect(() => {
+                setuser(username)
+            })
 
+        } catch (error) {
 
-    const userObject = JSON.parse(activeUser);
-    const username = userObject.username
-    console.log(username)
-    useEffect(() => {
-        setuser(username)
-    })
+        }
 
-
-
-
-
-
+    }
     return (
         <div>
 
@@ -37,7 +37,7 @@ function Nav() {
                 <ThemeToggle />
                 <div className='waleed'>
                     <p>{user}</p>
-                    <img className='profile' src="/src/assets/profileIcon.webp" alt="" />
+                    <img className='profile' src="/src/assets/profileIcon.webp" alt="profile" />
                 </div>
 
 
@@ -49,6 +49,5 @@ function Nav() {
         </div>
     )
 }
-
 export default Nav
 
