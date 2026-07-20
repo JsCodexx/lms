@@ -20,12 +20,14 @@ function Nav() {
     console.log("theme", theme)
 
     const activeUser = localStorage.getItem("username");
-    console.log(activeUser, "activeusers")
+    console.log(activeUser,"activeusers")
 
 
-
+    // const userObject = (activeUser);
+    // const username = userObject.username
+    // console.log(username)
     useEffect(() => {
-        setuser(activeUser)
+        setuser(username)
     })
 
     useEffect(() => {
@@ -93,6 +95,5 @@ function Nav() {
         </div>
     )
 }
-
 export default Nav
 
