@@ -20,7 +20,7 @@ function Nav() {
     console.log("theme", theme)
 
     const activeUser = localStorage.getItem("username");
-    console.log(activeUser,"activeusers")
+    console.log(activeUser, "activeusers")
 
 
     // const userObject = (activeUser);
@@ -77,7 +77,7 @@ function Nav() {
                 <h2>LMS   <span>Learning Management System</span></h2>
                 <ThemeToggle />
                 <div className='waleed'>
-                    <p>{user}</p>
+                    <p className='imli'>{user}</p>
                     <img className='profile' src="/src/assets/profileIcon.webp" alt="" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} />
                     {isOpen && (
                         <ul className="dropdown-menu">
