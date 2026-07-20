@@ -317,12 +317,15 @@ p {
 }
 .postContainer {
   /* border: 1px solid green; */
-  width: 30%;
-  height: 420px;
+  width: 50%;
+  height: 30px;
   margin-top: 30px;
   margin-left: 100px;
   padding: 10px 10px 10px 10px;
   /* box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15); */
+  display: flex;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
 }
 .smallContainer {
   /* border: 1px solid black; */
@@ -330,9 +333,10 @@ p {
   height: 500px;
   box-shadow: 0 15px 10px rgba(0, 0, 0, 0.15);
   background: #ffff;
+  margin-top: 20px;
 }
 .icon {
-  padding-top: 75px;
+  padding-top: 30px;
   padding-left: 20px;
   display: flex;
   gap: 20px;
@@ -343,7 +347,9 @@ p {
   padding: 0px;
   margin-top: 10px;
   margin-right: 20px;
-  font-size: 17px;
+  font-size: 20px;
+  text-align: center;
+  /* color: #f2f3f8; */
 }
 .date {
   padding: 0px;
@@ -400,4 +406,26 @@ p {
   border-radius: 7px;
   border: 1px solid grey;
   background: transparent;
+}
+.tabs {
+  width: 50%;
+  height: 20px;
+  background: #7c5cc4;
+  margin-left: 85px;
+  margin-top: 35px;
+  padding: 20px 20px 20px 20px;
+}
+.tagButton {
+  background: #f2f3f8;
+  /* border: transparent; */
+  border: transparent;
+  margin-left: 10px;
+  width: 90px;
+  padding: 5px 5px 5px 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.tagButton:hover {
+  color: #7c5cc4;
 }

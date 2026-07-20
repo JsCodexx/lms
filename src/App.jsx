@@ -10,6 +10,7 @@ import ProtectedRoutes from './utils/ProtectedRoute.jsx';
 import { useEffect, useState } from 'react';
 import Singleuser from './pages/Singleuser.jsx';
 import Wrapper from './components/Wrapper.jsx';
+import Post from './pages/Post.jsx';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -31,6 +32,7 @@ function App() {
   return (
     <ThemeProvider>
       <BrowserRouter>
+       
         <Routes>
 
           <Route
@@ -43,6 +45,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/singleuser/:id" element={<Singleuser />} />
             <Route path="/about" element={<About />} />
+            <Route path="/posts" element={<Post />} />
             <Route path="/contact/:id" element={<Contact />} />
           </Route>
 
