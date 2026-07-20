@@ -7,6 +7,8 @@ import { tagsDataPost } from '../api/Tags/tagApi';
 import FilterCard from '../components/FilterCard';
 import Loaders from '../components/Loader';
 import privateAxios from "axios"
+import Footer from '../components/Footer';
+
 
 
 export default function Post() {
@@ -88,9 +90,13 @@ export default function Post() {
                     </button>
                 ))}
             </div>
-            <Loaders show={loading} />
 
-            <FilterCard tag={filteredProducts} />
+            <Loaders show={loading} />
+            <div className='duo'>
+                <FilterCard tag={filteredProducts} />
+                
+            </div>
+
         </div >
     )
 }
