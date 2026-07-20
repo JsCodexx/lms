@@ -10,7 +10,7 @@ import AddStudentForm from '../components/AddStudentForm'
 
 
 function About() {
-    const [users, setUsers] = useState("")
+
     const [students, setStudents] = useState([]);
     console.log(students)
 
@@ -27,7 +27,7 @@ function About() {
         console.log(student, "addstudents")
 
     };
-    
+
     return (
         <div>
             <Nav />

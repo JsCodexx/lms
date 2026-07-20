@@ -1,21 +1,4 @@
-// import React from 'react'
-// import { useNavigate } from 'react-router-dom'
 
-
-// export default function Login({setUser}) {
-//     const navigate = useNavigate();
-//     function handleSubmit() {
-
-//         setUser({ loggedin: "waleed" })
-//         navigate("/")
-//     }
-//     return (
-//         <div>
-//             <div><h1 >Login</h1></div>
-//             <button className='login' onClick={handleSubmit} >login</button>
-//         </div>
-//     )
-// }
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -25,26 +8,39 @@ import { useEffect } from 'react';
 
 export default function Login() {
     const [data, setData] = useState("");
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
-
-    const getData = async () => {
-        const student = await loginApi();
-        console.log("res", student)
-        setData(student);
-        localStorage.setItem("token", JSON.stringify(student))
+    const [username, setusername] = useState('');
+    const [password, setpassword] = useState('');
 
 
 
-    }
-    useEffect(() => {
-        getData()
-    }, [])
+    // const getData =
+    //     async () => {
+    //         const student = await loginApi();
+    //         console.log("res", student)
+    //         setData(student);
+    //         localStorage.setItem("token", JSON.stringify(student))
+
+
+
+    //     }
+    // useEffect(() => {
+    //     getData()
+    // }, [])
     const navigate = useNavigate()
-    function handleSubmit() {
-        navigate("/")
+    async function handleSubmit(e) {
+        e.preventDefault()
+        console.log(username, password, "data")
+        const correctData = await loginApi(username, password);
+        console.log(correctData, "correct")
+        if (correctData) {
+            navigate("/")
+        }
+        else {
+            alert("please enter correct password!")
+        }
+
     }
+
 
 
 
@@ -55,14 +51,14 @@ export default function Login() {
             <h2>Login</h2>
 
 
-            <form style={{ display: 'flex', flexDirection: 'column', width: "300px" }} >
+            <form style={{ display: 'flex', flexDirection: 'column', width: "300px" }} onSubmit={handleSubmit} >
                 <div style={{ marginBottom: '15px' }}>
                     <label>Username:</label>
                     <input
                         type="text"
                         value={username}
-                        onChange={(e) => { setUsername(e.target.value) }}
-
+                        onChange={(e) => { setusername(e.target.value) }}
+                        required
 
                         style={{ width: '100%', padding: '8px', marginTop: '5px' }}
                     />
@@ -73,15 +69,15 @@ export default function Login() {
                     <input
                         type="password"
                         value={password}
-                        onChange={(e) => { setPassword(e.target.value) }}
+                        onChange={(e) => { setpassword(e.target.value) }}
 
-
+                        required
 
                         style={{ width: '100%', padding: '8px', marginTop: '5px' }}
                     />
                 </div>
 
-                <button onClick={handleSubmit} type='submit' style={{ width: '100%', padding: '10px' }}>
+                <button type='submit' style={{ width: '100%', padding: '10px' }}>
                     login
                 </button>
             </form>
