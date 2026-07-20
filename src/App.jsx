@@ -13,7 +13,7 @@ import Wrapper from './components/Wrapper.jsx';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
- 
+
 
   useEffect(() => {
     const savedToken = localStorage.getItem('token');
@@ -22,7 +22,7 @@ function App() {
     } else {
       setIsLoggedIn(false);
     }
-   
+
   }, []);
 
 
@@ -41,9 +41,9 @@ function App() {
 
           <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} />}>
             <Route path="/" element={<Home />} />
-            <Route path="/singleuser" element={<Singleuser />} />
+            <Route path="/singleuser/:id" element={<Singleuser />} />
             <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact/:id" element={<Contact />} />
           </Route>
 
           <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} replace />} />

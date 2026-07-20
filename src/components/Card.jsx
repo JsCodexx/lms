@@ -11,7 +11,7 @@ export const Card = ({data}) => {
                 <ul>
                     <li><Link className='active' to="/">Home</Link></li>
                     <li><Link className='active' to="/about">Students</Link> </li>
-                    <li><Link className='active' to="/contact"> Profile</Link></li>
+                    <li><Link className='active' to="/contact"> Post</Link></li>
                 </ul>
             </div>
             {/* card-1 */}

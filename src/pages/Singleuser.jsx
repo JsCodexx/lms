@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
-
+import { useParams } from 'react-router-dom';
 import { refreshToken, SingleUserData } from '../api/users';
 import Loaders from '../components/Loader';
 import privateAxios from "axios"
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 
-export default function StudentPage() {
+export default function StudentPage({ user }) {
+    console.log(user)
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
-
+    const { id } = useParams()
+    console.log(id)
     useEffect(() => {
         privateAxios.interceptors.response.use(
             (config) => {
@@ -37,7 +39,7 @@ export default function StudentPage() {
 
     const getData = async () => {
 
-        let singleData = await SingleUserData();
+        let singleData = await SingleUserData(id);
         console.log(singleData, "single")
         if (singleData === undefined) {
             const data = await refreshToken();
@@ -45,12 +47,12 @@ export default function StudentPage() {
             console.log(data)
             const storage = localStorage.setItem("token", JSON.stringify(data))
             // console.log(storage, "storage")
-           const result= sessionStorage.setItem("refreshToken", data);
-           console.log(result)
+            const result = sessionStorage.setItem("refreshToken", data);
+            console.log(result)
             if (data) {
                 singleData = await SingleUserData();
             } else {
-                navigate("/")
+                // navigate("/")
             }
 
         }
@@ -58,8 +60,15 @@ export default function StudentPage() {
     }
 
     useEffect(() => {
-        getData();
-    }, []);
+        if (id) {
+            getData();
+        }
+
+
+    }, [id]);
+    function handlePostButton(user) {
+        navigate(`/contact/${user}`)
+    }
 
     return (
         <>  <Nav />
@@ -68,7 +77,10 @@ export default function StudentPage() {
             <div style={{ display: "flex", gap: "50px" }}>
                 <div style={{ boxShadow: "0 15px 10px rgba(0, 0, 0, 0.15)", backgroundColor: "white", width: "300px", height: "400px", marginLeft: "80px" }}>
                     <div style={{ marginTop: '20px', display: "flex", flexDirection: "column", gap: "05px", marginLeft: '80px', }}>
-                        <img src="/src/assets/profileIcon.webp" alt="" style={{ width: "120px", paddingLeft: "0px", paddingTop: "30px" }} />
+                        <button className='buttonPost' onClick={() => { handlePostButton(data.id) }}>
+                            <img src="/src/assets/profileIcon.webp" alt="" style={{ width: "120px", paddingLeft: "0px", paddingTop: "30px" }} />
+                        </button>
+
                         <h2>{data.username}</h2>
                         <p style={{ marginTop: "0px" }}>bc260213343</p>
                         <h5 >bc260213343was@vu.edu.pk</h5>
