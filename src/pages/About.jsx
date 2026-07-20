@@ -56,7 +56,7 @@ function About() {
 
     return (
         <div>
-            <Nav />
+            <Nav users={students}/>
             <AddStudentForm addStudent={addStudent} />
             <h1>Students Data </h1>
             
