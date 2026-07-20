@@ -9,18 +9,19 @@ import Login from './pages/Login';
 import ProtectedRoutes from './utils/ProtectedRoute.jsx';
 import { useEffect, useState } from 'react';
 import Singleuser from './pages/Singleuser.jsx';
+import Wrapper from './components/Wrapper.jsx';
 
 
 
 function App() {
 
 
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
 
-  console.log(user,"user")
-  useEffect(() => {
-    setUser()
-  }, [user])
+  // console.log(user,"user")
+  // useEffect(() => {
+  //   setUser()
+  // }, [user])
 
 
   return (
@@ -33,16 +34,23 @@ function App() {
 
 
 
-            <Route path='/login' element={<Login />} />
+            <Route
+              path="/login"
+              element={
+               
+                  <Login />
+                
+              }
+            />
 
-            {/* <Route element={<ProtectedRoutes user={user} />}> */}
+            <Route element={<ProtectedRoutes />}>
               <Route path="/" element={
                 <Home />
               } />
               <Route path="/singleuser" element={<Singleuser />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-            {/* </Route> */}
+            </Route>
 
           </Routes>
 

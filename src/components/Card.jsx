@@ -5,6 +5,7 @@ export const Card = ({data}) => {
 
     return (
         <div className='card-container'>
+            
             {/* sidebar */}
             <div className='sideBar'>
                 <ul>

@@ -2,9 +2,34 @@ import React, { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
 
 import { SingleUserData } from '../api/users';
-
+import Loaders from '../components/Loader';
+import privateAxios from "axios"
+import Footer from '../components/Footer';
 
 export default function StudentPage() {
+        const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        privateAxios.interceptors.response.use(
+            (config) => {
+                setLoading(false);
+                return config;
+            },
+            (error) => {
+                return Promise.reject(error);
+            },
+        );
+
+        privateAxios.interceptors.request.use(
+            (config) => {
+                setLoading(true);
+                return config;
+            },
+            (error) => {
+                return Promise.reject(error);
+            },
+        );
+    }, []);
     const [currentTab, setCurrentTab] = useState('profile');
     const [data, setData] = useState("");
 
@@ -21,6 +46,7 @@ export default function StudentPage() {
     return (
         <>  <Nav />
             <h2 style={{ marginLeft: "80px" }}>Student Profile</h2>
+            <Loaders show={loading}/>
             <div style={{ display: "flex", gap: "50px" }}>
                 <div style={{ boxShadow: "0 15px 10px rgba(0, 0, 0, 0.15)", backgroundColor: "white", width: "300px", height: "400px", marginLeft: "80px" }}>
                     <div style={{ marginTop: '20px', display: "flex", flexDirection: "column", gap: "05px", marginLeft: '80px', }}>
@@ -102,6 +128,7 @@ export default function StudentPage() {
 
                 </div>
             </div>
+            <Footer/>
         </>
     );
 

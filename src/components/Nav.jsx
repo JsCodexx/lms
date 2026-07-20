@@ -20,30 +20,30 @@ function Nav() {
 
 
 
-return (
-    <div>
+    return (
+        <div>
 
 
-        <nav className='navbar'>
+            <nav className='navbar'>
 
 
-            <h2>LMS   <span>Learning Management System</span></h2>
+                <h2>LMS   <span>Learning Management System</span></h2>
 
 
-            <ThemeToggle />
-            <div className='waleed'>
-                <p>{user}</p>
-                <img className='profile' src="/src/assets/profileIcon.webp" alt="profile" />
-            </div>
-
-
-
+                <ThemeToggle />
+                <div className='waleed'>
+                    <p>{user}</p>
+                    <img className='profile' src="/src/assets/profileIcon.webp" alt="profile" />
+                </div>
 
 
 
-        </nav>
-    </div>
-)
+
+
+
+            </nav>
+        </div>
+    )
 }
 export default Nav
 

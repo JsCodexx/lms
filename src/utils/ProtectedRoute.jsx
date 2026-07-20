@@ -6,7 +6,9 @@ import Home from "../pages/Home";
 
 const ProtectedRoutes = () => {
 
-    const token = localStorage.getItem("token")
+
+    // }
+    const token = localStorage.getItem("token");
 
     return token ? <Outlet /> : <Navigate to="/login" />;
 };
