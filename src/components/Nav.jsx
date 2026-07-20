@@ -10,46 +10,40 @@ function Nav() {
     console.log("theme", theme)
 
     const activeUser = localStorage.getItem("token");
-    if (activeUser) {
-        try {
-            const userObject = JSON.parse(activeUser);
-            const username = userObject.username
-            console.log(username)
-            useEffect(() => {
-                setuser(username)
-            })
 
-        } catch (error) {
-
-        }
-
-    }
-
-    return (
-        <div>
+    const userObject = JSON.parse(activeUser);
+    const username = userObject.username
+    console.log(username)
+    useEffect(() => {
+        setuser(username)
+    })
 
 
-            <nav className='navbar'>
+
+return (
+    <div>
 
 
-                <h2>LMS   <span>Learning Management System</span></h2>
+        <nav className='navbar'>
 
 
-                <ThemeToggle />
-                <div className='waleed'>
-                    <p>{user}</p>
-                    <img className='profile' src="/src/assets/profileIcon.webp" alt="" />
-                </div>
+            <h2>LMS   <span>Learning Management System</span></h2>
+
+
+            <ThemeToggle />
+            <div className='waleed'>
+                <p>{user}</p>
+                <img className='profile' src="/src/assets/profileIcon.webp" alt="profile" />
+            </div>
 
 
 
 
 
 
-            </nav>
-        </div>
-    )
+        </nav>
+    </div>
+)
 }
-
 export default Nav
 
