@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import About from './pages/About.jsx';
@@ -11,54 +11,46 @@ import { useEffect, useState } from 'react';
 import Singleuser from './pages/Singleuser.jsx';
 import Wrapper from './components/Wrapper.jsx';
 
-
-
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ 
+
+  useEffect(() => {
+    const savedToken = localStorage.getItem('token');
+    if (savedToken) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+   
+  }, []);
 
 
-  // const [user, setUser] = useState(null)
-
-  // console.log(user,"user")
-  // useEffect(() => {
-  //   setUser()
-  // }, [user])
 
 
   return (
-    <>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
 
-      <ThemeProvider>
-
-        <BrowserRouter>
-          <Routes>
-
-
-
-            <Route
-              path="/login"
-              element={
-               
-                  <Login />
-                
-              }
-            />
-
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/" element={
-                <Home />
-              } />
-              <Route path="/singleuser" element={<Singleuser />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-            </Route>
-
-          </Routes>
-
-        </BrowserRouter>
-      </ThemeProvider>
+          <Route
+            path="/login"
+            element={isLoggedIn ? <Navigate to="/" replace /> : <Login />}
+          />
 
 
-    </>
-  )
+          <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/singleuser" element={<Singleuser />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Route>
+
+          <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} replace />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
+  ); s
 }
-export default App
+
+export default App;
