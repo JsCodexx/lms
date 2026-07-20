@@ -18,13 +18,13 @@ export const Card = ({ data }) => {
             <div className='combine'>
                 {/* sidebar */}
 
-              
+
                 <div className='sideOpen'>
-                    <button class="menu-btn" id="menuBtn" onClick={open}>|||</button>
+                    <button class="menu-btn" id="menuBtn" onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
                     <div className='sideIcon'>
-                        <img src="/src/assets/home-removebg-preview.png" alt="" width={50} />
-                        <img src="/src/assets/student-removebg-preview.png" alt="" width={50} />
-                        <img src="/src/assets/images-removebg-preview.png" alt="" width={50} />
+                        <img className='sideImage' src="/src/assets/home-removebg-preview.png" alt="" width={50} />
+                        <img className='sideImage' src="/src/assets/student-removebg-preview.png" alt="" width={50} />
+                        <img className='sideImage' src="/src/assets/images-removebg-preview.png" alt="" width={50} />
                     </div>
                 </div>
                 {isOpen &&
@@ -32,9 +32,9 @@ export const Card = ({ data }) => {
 
                         <ul className='menu-links'>
                             <button class="close-btn" id="closeBtn" onClick={close}>x</button>
-                            <li><Link className='active' to="/">Home</Link></li>
-                            <li><Link className='active' to="/about">Students</Link> </li>
-                            <li><Link className='active' to="/posts"> Post</Link></li>
+                            <li className='love'><Link className='active' to="/">Home</Link></li>
+                            <li className='love'><Link className='active' to="/about">Student</Link> </li>
+                            <li className='love'><Link className='active' to="/posts"> Post</Link></li>
                         </ul>
                         {/* <div class="overlay" id="overlay" onClick={close}></div> */}
                     </div>}
