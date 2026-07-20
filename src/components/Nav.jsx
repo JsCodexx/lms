@@ -18,6 +18,11 @@ function Nav() {
 
 
                 <ThemeToggle />
+                <div className='waleed'>
+                    <p>Waleed Siddiqui</p>
+                     <img className='profile' src="/src/assets/profileIcon.webp" alt="" />
+                </div>
+               
 
 
 

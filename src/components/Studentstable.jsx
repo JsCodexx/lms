@@ -1,11 +1,13 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function Studentstable({ user }) {
-    console.log(user, "use")
+
+    // console.log(user, "use")
     const navigate = useNavigate()
     function handleButton() {
-        navigate("/singleuser")
+        navigate(`/singleuser`)
     }
 
     return (

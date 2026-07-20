@@ -9,8 +9,8 @@ export const ThemeToggle = () => {
 
   return (
     <>
-      <button onClick={toggleDarkMode}>
-        {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+      <button className="theme" onClick={toggleDarkMode}>
+        {darkMode ? " Light Mode" : " Dark Mode"}
       </button>
     </>
   );

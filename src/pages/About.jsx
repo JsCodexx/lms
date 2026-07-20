@@ -3,26 +3,37 @@ import Nav from '../components/Nav'
 import { Link } from 'react-router-dom'
 import { userData } from '../api/users'
 import Studentstable from '../components/Studentstable'
+import AddStudentForm from '../components/AddStudentForm'
+
 
 
 
 
 function About() {
     const [users, setUsers] = useState("")
-    console.log(users, "students")
+    const [students, setStudents] = useState([]);
+    console.log(students)
+
     const getData = async () => {
         const student = await userData();
-        console.log("res", student)
-        setUsers(student);
+        // console.log("res", student)
+        setStudents(student);
     }
     useEffect(() => {
         getData()
     }, [])
+    const addStudent = (student) => {
+        setStudents([...students, student]);
+        console.log(student, "addstudents")
+
+    };
+    
     return (
         <div>
             <Nav />
+            <AddStudentForm addStudent={addStudent} />
             <h1>Students Data </h1>
-            <Studentstable user={users} />
+            <Studentstable user={students} />
 
         </div>
     )
