@@ -77,7 +77,7 @@ function Nav() {
                 <h2>LMS   <span>Learning Management System</span></h2>
                 <ThemeToggle />
                 <div className='waleed'>
-                    <p>{user}</p>
+                    <p className='hero'>{user}</p>
                     <img className='profile' src="/src/assets/profileIcon.webp" alt="" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} />
                     {isOpen && (
                         <ul className="dropdown-menu">

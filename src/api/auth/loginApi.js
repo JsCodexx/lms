@@ -20,10 +20,11 @@ export const loginApi = async (username, password) => {
 
     console.log(res, "js res");
     return res.data;
+    
   } catch (err) {
-    console.error(err);
+    alert("wrong Password & Email");
     throw err;
+  } finally {
+    alert("login sucessfully!");
   }
 };
-
-
