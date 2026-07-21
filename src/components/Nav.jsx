@@ -12,6 +12,7 @@ function Nav() {
 
     const [user, setuser] = useState()
     const [isOpen, setIsOpen] = useState(false)
+    const [Open, setOpen] = useState(false)
     const [students, setStudents] = useState()
     const navigate = useNavigate()
     // const { id } = useParams()
@@ -27,7 +28,7 @@ function Nav() {
     // const username = userObject.username
     // console.log(username)
     useEffect(() => {
-        setuser(username)
+        setuser(activeUser)
     })
 
     useEffect(() => {
@@ -64,20 +65,29 @@ function Nav() {
     function handleProfile() {
         navigate(`/singleuser/1`)
     }
-
+    function open() {
+        setOpen(true)
+    }
+    function close() {
+        setOpen(false)
+    }
 
 
     return (
         <div>
-
-
             <nav className='navbar'>
 
-
-                <h2>LMS   <span>Learning Management System</span></h2>
+                <div className='top'>
+                    <img className='lahore' src='/src/assets/lms-removebg-preview.png' width={100} />
+                    <span>Learning Management System</span>
+                </div>
+                <button class="menu-btn-1"  onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
                 <ThemeToggle />
                 <div className='waleed'>
-                    <p className='imli'>{user}</p>
+                    <div className='two'>
+                        <p className='imli'>{user} neil bung</p>
+                        <p className='imli2'>(bc260213343)</p>
+                    </div>
                     <img className='profile' src="/src/assets/profileIcon.webp" alt="" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} />
                     {isOpen && (
                         <ul className="dropdown-menu">
@@ -89,6 +99,22 @@ function Nav() {
 
                         </ul>
                     )}
+                    <div className='one'>
+                        {Open &&
+                            <div className="sidebar">
+
+                                <ul className='menu-links'>
+                                    <button class="close-btn" id="closeBtn" onClick={close}>x</button>
+                                    <li className='love'><Link className='active' to="/">Home</Link></li>
+                                    <li className='love'><Link className='active' to="/about">Student</Link> </li>
+                                    <li className='love'><Link className='active' to="/posts"> Post</Link></li>
+                                </ul>
+
+
+
+                            </div>}
+                    </div>
+
                 </div>
 
             </nav>

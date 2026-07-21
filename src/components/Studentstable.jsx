@@ -15,7 +15,7 @@ export default function Studentstable({ user }) {
     const filterData = user.filter((data) => {
         var searched = search.toUpperCase()
         var userName = data?.firstName?.toUpperCase()
-        console.log(userName)
+        // console.log(userName)
         return userName?.includes(searched)
     })
     return (
@@ -23,19 +23,19 @@ export default function Studentstable({ user }) {
             <input className='userData' type="text" placeholder='Enter Username' onChange={searchName} />
             <table>
                 <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Birth-date</th>
-                        <th>Gender</th>
-                        <th>University</th>
-                        <th>Image</th>
-                        <th>View Profile</th>
+                    <tr className='header'>
+                        <th className='color'>Id</th>
+                        <th className='color'>Name</th>
+                        <th className='color'>Age</th>
+                        <th className='color'>Birth-date</th>
+                        <th className='color'>Gender</th>
+                        <th className='color'>University</th>
+                        <th className='color'>Image</th>
+                        <th className='color'>View Profile</th>
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className='lower'>
                     {Array.isArray(filterData) && filterData.map((users) => (
                         <tr >
                             <td>{users.id}-</td>

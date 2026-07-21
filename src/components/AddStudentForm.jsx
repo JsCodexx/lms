@@ -6,10 +6,13 @@ export default function AddStudentForm({ addStudent }) {
     const [age, setAge] = useState('');
     const [studentClass, setStudentClass] = useState('');
 
+    const i = 31
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        addStudent({ id: Date.now(), name, age, class: studentClass })
-        setName('');
+        addStudent({ id: i, firstName: firstName, age: age, university: studentClass })
+        setfirstName('');
         setAge('');
         setStudentClass('');
     }

@@ -5,6 +5,7 @@ import { Card } from '../components/Card';
 import Loaders from '../components/Loader';
 import privateAxios from "axios";
 import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
 
 function Home() {
   const [loading, setLoading] = useState(false);
@@ -44,7 +45,11 @@ function Home() {
     <div>
       <Nav />
       <Loaders show={loading} />
-      <Card data={data} />
+      <div className='homeContainer'>
+        <Sidebar />
+        <Card data={data} />
+      </div>
+
       <Footer />
 
 

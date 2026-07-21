@@ -1,30 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 export const Card = ({ data }) => {
-    const [isOpen, setIsOpen] = useState(false)
-    console.log(isOpen)
+    const navigate = useNavigate();
 
-    function open() {
-        setIsOpen(true)
-    }
-    function close() {
-        setIsOpen(false)
-    }
+    // const [isOpen, setIsOpen] = useState(false)
+    // console.log(isOpen)
 
+    // function open() {
+    //     setIsOpen(true)
+    // }
+    // function close() {
+    //     setIsOpen(false)
+    // }
+    // function handleStudent() {
+    //     navigate("/about")
+    // }
+    // function handlePost() {
+    //     navigate("/posts")
+    // }
     return (
         <>
-            <div className='combine'>
+            {/* <div className='combine'> */}
                 {/* sidebar */}
 
-
-                <div className='sideOpen'>
+                {/* <div className='sideOpen'>
                     <button class="menu-btn" id="menuBtn" onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
                     <div className='sideIcon'>
                         <img className='sideImage' src="/src/assets/home-removebg-preview.png" alt="" width={50} />
-                        <img className='sideImage' src="/src/assets/student-removebg-preview.png" alt="" width={50} />
-                        <img className='sideImage' src="/src/assets/images-removebg-preview.png" alt="" width={50} />
+                        <img onClick={handleStudent} className='sideImage' src="/src/assets/student-removebg-preview.png" alt="" width={50} />
+                        <img onClick={handlePost} className='sideImage' src="/src/assets/images-removebg-preview.png" alt="" width={50} />
                     </div>
                 </div>
                 {isOpen &&
@@ -36,8 +44,10 @@ export const Card = ({ data }) => {
                             <li className='love'><Link className='active' to="/about">Student</Link> </li>
                             <li className='love'><Link className='active' to="/posts"> Post</Link></li>
                         </ul>
-                        {/* <div class="overlay" id="overlay" onClick={close}></div> */}
-                    </div>}
+
+
+
+                    </div>} */}
 
                 <div className='card-container'>
 
@@ -52,18 +62,18 @@ export const Card = ({ data }) => {
                     {/* card-2 */}
                     <div className='card-2'>
                         <div className='miniCard'>
-                            <h3 className='heading'> CS - Active Students</h3>
+                            <h3 className='heading'> CS - Total Active Students</h3>
                         </div>
                         <h1 className='activeStudents'>Active Student:   158</h1>
                     </div>
                     <div className='card-3'>
                         <div className='miniCard'>
-                            <h3 className='heading'>CS - Un-Active Students</h3>
+                            <h3 className='heading'>CS - Total Un-Active Students</h3>
                         </div>
                         <h1 className='absentStudents'>Absent Student:50</h1>
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </>
     )
 }
