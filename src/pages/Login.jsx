@@ -10,74 +10,111 @@ export default function Login() {
     const [data, setData] = useState("");
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
+    const [loader, setLoader] = useState(false)
 
-
+    console.log(loader)
 
     const navigate = useNavigate()
+
     async function handleSubmit(e) {
-        e.preventDefault()
-        // console.log(username, password, "data")
-        const correctData1 = await loginApi(username, password);
-        const { refreshToken, ...correctData } = correctData1;
-        const { user, ...userData } = correctData1
-        console.log(correctData1)
+        try {
+            e.preventDefault()
+            setLoader(true)
+            // console.log(username, password, "data")
+            const correctData1 = await loginApi(username, password);
+            const { refreshToken, ...correctData } = correctData1;
+            const { user, ...userData } = correctData1
+            console.log(correctData1)
 
-        localStorage.setItem("token", JSON.stringify(correctData.accessToken));
-        localStorage.setItem("username", username);
+            localStorage.setItem("token", JSON.stringify(correctData.accessToken));
+            localStorage.setItem("username", username);
 
-        sessionStorage.setItem("refreshToken", refreshToken);
+            sessionStorage.setItem("refreshToken", refreshToken);
 
-        if (correctData1) {
-            navigate("/")
+            if (correctData1) {
+                navigate("/")
+            }
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setLoader(false)
         }
-        else {
-            alert("please enter correct password!")
-        }
+
+
+
+
+
+
 
     }
 
+
     return (
-        <>
-        <h1 style={{color:"black"}}>LMS</h1>
-            <div style={{ maxWidth: '400px', height: "350px", margin: '50px auto', padding: '20px', border: '1px solid #ccc',backgroundColor:"#875df4" }}>
-
-              
+        <div className='log'>
 
 
+            <div className='sign'>
 
-                <form style={{ display: 'flex', flexDirection: 'column', width: "300px" }} onSubmit={handleSubmit} >
-                    <div style={{ marginBottom: '15px' }}>
+                <div style={{ maxWidth: '400px', height: "350px", marginTop: '70px', marginLeft: "150px", padding: '20px', }}>
 
-                        <label>Username:</label>
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={(e) => { setusername(e.target.value) }}
-                            required
+                    <img className='lamp' src="/src/assets/lms-removebg-preview.png" alt="pic" />
 
-                            style={{ width: '100%', padding: '8px', marginTop: '5px',borderRadius:"10px" , border:"transparent" }}
-                        />
-                    </div>
 
-                    <div style={{ marginBottom: '15px' }}>
-                        <label>Password:</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => { setpassword(e.target.value) }}
 
-                            required
+                    <form style={{ display: 'flex', flexDirection: 'column', width: "300px", marginRight: "50px", marginTop: "60px" }} onSubmit={handleSubmit} >
+                        <div style={{ marginBottom: '15px', width: "100%", marginRight: "20px" }}>
 
-                            style={{ width: '100%', padding: '8px', marginTop: '5px',borderRadius:"10px", border:"transparent" }}
-                        />
-                    </div>
+                            <label>Username:</label>
+                            <input
+                                type="text"
+                                value={username}
+                                onChange={(e) => { setusername(e.target.value) }}
+                                required
 
-                    <button type='submit' style={{ width: '50%',cursor:"pointer", border:"transparent", padding: '10px',marginLeft:"70px",fontSize:"20px", backgroundColor:"white",fontWeight:"bolder" }}>
-                        login
-                    </button>
-                </form>
+                                style={{ width: '100%', padding: '10px', marginTop: '5px', borderRadius: "10px", border: "transparent", backgroundColor: "#E8F0FE", paddingRightRight: "30px" }}
+                            />
+                        </div>
 
-            </div >
-        </>
+                        <div style={{ marginBottom: '15px' }}>
+                            <label>Password:</label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => { setpassword(e.target.value) }}
+
+                                required
+
+                                style={{ width: '100%', padding: '10px', marginTop: '5px', borderRadius: "10px", border: "transparent", backgroundColor: "#E8F0FE" }}
+                            />
+                        </div>
+
+                        <button
+                            type='submit'
+                            style={{
+                                width: "40%",
+                                cursor: "pointer",
+                                border: "none",
+                                padding: "10px",
+                                marginLeft: "70px",
+                                fontSize: "20px",
+                                color: "white",
+                                backgroundColor: "#875df4",
+                                fontWeight: "bold",
+                                borderRadius: "800px"
+                            }}
+
+
+                        >
+                            {loader ? "Loading..." : "Login"}
+                        </button>
+
+                    </form>
+
+                </div >
+                <div >
+                    <img src="/src/assets/screenshot.png" alt="picture" />
+                </div>
+            </div>
+        </div>
     );
 }

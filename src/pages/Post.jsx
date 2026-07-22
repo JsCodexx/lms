@@ -9,6 +9,8 @@ import Loaders from '../components/Loader';
 import privateAxios from "axios"
 import Footer from '../components/Footer';
 
+import Sidebar from '../components/Sidebar';
+
 
 
 export default function Post() {
@@ -73,9 +75,12 @@ export default function Post() {
     return (
         <div>
             <Nav />
-
-
-            <div className='tabs'>
+            <div className='content'>
+                <div>
+                    <Sidebar />
+                </div>
+                <div>
+                    <div className='tabs'>
 
                 <button onClick={() => setActiveCategory('all')} className='tagButton'>
                     All

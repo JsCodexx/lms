@@ -7,6 +7,7 @@ import AddStudentForm from '../components/AddStudentForm'
 import Loaders from '../components/Loader'
 import privateAxios from "axios";
 import Footer from '../components/Footer'
+import Sidebar from '../components/Sidebar'
 
 
 
@@ -14,6 +15,12 @@ import Footer from '../components/Footer'
 
 function About() {
     const [loading, setLoading] = useState(false);
+    const [users, setUsers] = useState("");
+    const [students, setStudents] = useState(() => {
+        const savedStudents = localStorage.getItem("students")
+        return savedStudents ? JSON.parse(savedStudents) : [];
+    });
+    // console.log(students)
 
     useEffect(() => {
         privateAxios.interceptors.response.use(
@@ -36,9 +43,10 @@ function About() {
             },
         );
     }, []);
-    const [users, setUsers] = useState("")
-    const [students, setStudents] = useState([]);
-    console.log(students)
+    useEffect(() => {
+        const currentData = localStorage.setItem('students', JSON.stringify(students))
+        console.log(currentData, "data")
+    }, [students])
 
     const getData = async () => {
         const student = await userData();
@@ -48,20 +56,35 @@ function About() {
     useEffect(() => {
         getData()
     }, [])
-    const addStudent = (student) => {
-        setStudents([...students, student]);
-        console.log(student, "addstudents")
+    const addStudent = (newStudents) => {
+        console.log(newStudents)
+        setStudents((prevStudents) => [
+            ...prevStudents, newStudents
+        ]
+
+        );
+        console.log(students, "addstudents")
 
     };
 
     return (
         <div>
-            <Nav users={students}/>
-            <AddStudentForm addStudent={addStudent} />
-            <h1>Students Data </h1>
-            
-            <Loaders show={loading} />
-            <Studentstable user={students} />
+            <Nav users={students} />
+            <div className='aboutContainer'>
+                <div>   <Sidebar /></div>
+
+                <div>
+                    <AddStudentForm addStudent={addStudent} />
+                    <h1>Students Data </h1>
+
+                    <Loaders show={loading} />
+
+                    <Studentstable user={students} />
+                </div>
+
+
+            </div>
+
             <Footer />
 
         </div>
