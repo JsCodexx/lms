@@ -3,25 +3,23 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-
 export const Card = ({ data }) => {
-    const navigate = useNavigate();
+    const navigate = useNavigate()
+    const [isOpen, setIsOpen] = useState(false)
+    console.log(isOpen)
 
-    // const [isOpen, setIsOpen] = useState(false)
-    // console.log(isOpen)
-
-    // function open() {
-    //     setIsOpen(true)
-    // }
-    // function close() {
-    //     setIsOpen(false)
-    // }
-    // function handleStudent() {
-    //     navigate("/about")
-    // }
-    // function handlePost() {
-    //     navigate("/posts")
-    // }
+    function open() {
+        setIsOpen(true)
+    }
+    function close() {
+        setIsOpen(false)
+    }
+    function handleAbout() {
+        navigate("/about")
+    }
+    function handleContact() {
+        navigate("/posts")
+    }
     return (
         <>
             {/* <div className='combine'> */}
@@ -30,9 +28,9 @@ export const Card = ({ data }) => {
                 {/* <div className='sideOpen'>
                     <button class="menu-btn" id="menuBtn" onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
                     <div className='sideIcon'>
-                        <img className='sideImage' src="/src/assets/home-removebg-preview.png" alt="" width={50} />
-                        <img onClick={handleStudent} className='sideImage' src="/src/assets/student-removebg-preview.png" alt="" width={50} />
-                        <img onClick={handlePost} className='sideImage' src="/src/assets/images-removebg-preview.png" alt="" width={50} />
+                        <img className='sideImage1' src="/src/assets/home-removebg-preview.png" alt="" width={50} />
+                        <img className='sideImage' onClick={handleAbout} src="/src/assets/student-removebg-preview.png" alt="" width={50} />
+                        <img className='sideImage' onClick={handleContact} src="/src/assets/images-removebg-preview.png" alt="" width={50} />
                     </div>
                 </div>
                 {isOpen &&

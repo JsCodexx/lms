@@ -7,6 +7,8 @@ import { tagsDataPost } from '../api/Tags/tagApi';
 import FilterCard from '../components/FilterCard';
 import Loaders from '../components/Loader';
 import privateAxios from "axios"
+import Footer from '../components/Footer';
+
 import Sidebar from '../components/Sidebar';
 
 
@@ -80,25 +82,24 @@ export default function Post() {
                 <div>
                     <div className='tabs'>
 
-                        <button onClick={() => setActiveCategory('all')} className='tagButton'>
-                            All
-                        </button>
-                        {Array.isArray(data) && data.map((item, index) => (
-                            <button
-                                key={index}
-                                onClick={() => setActiveCategory(item.name)}
-                                className='tagButton'
-                            >
-                                {item.name}
-                            </button>
-                        ))}
-                    </div>
-                    <Loaders show={loading} />
+                <button onClick={() => setActiveCategory('all')} className='tagButton'>
+                    All
+                </button>
+                {Array.isArray(data) && data.map((item, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setActiveCategory(item.name)}
+                        className='tagButton'
+                    >
+                        {item.name}
+                    </button>
+                ))}
+            </div>
 
-                    <FilterCard tag={filteredProducts} />
-                </div>
-
-
+            <Loaders show={loading} />
+            <div className='duo'>
+                <FilterCard tag={filteredProducts} />
+                
             </div>
 
         </div >

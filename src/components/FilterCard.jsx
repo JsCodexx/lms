@@ -3,6 +3,7 @@ import { FilterDataPost } from '../api/Tags/tagApi';
 import { useState, useEffect } from 'react';
 import Loaders from '../components/Loader.jsx';
 
+
 export default function FilterCard({ tag }) {
     // const [post, setPost] = useState([])
     console.log(tag)
@@ -14,8 +15,8 @@ export default function FilterCard({ tag }) {
             <div className='big'>
                 <div className='postContainer-1'>
 
-                    {Array.isArray(tag) && tag.map((users) => (
-                        <div className='smallContainer' >
+                {Array.isArray(tag) && tag.map((users) => (
+                    <div className='smallContainer'>
 
                             <div div className='blue' >
                                 <h3>Facebook</h3>
@@ -27,16 +28,17 @@ export default function FilterCard({ tag }) {
                                         <p className='date'>Monday at 11:00 AM</p>
                                     </div>
 
-                                </div>
-                                <h4 className='email'>{users.title}</h4>
-                                <div className='bigImage'>
-                                    <p className='name'>{users.body}</p>
-                                </div>
-                                <div className='reacts'>
-                                    <p className='put'>💗😮👍  Lorem  and {users.reactions.likes} </p>
-                                    <p className='put'>55 comments</p></div>
-                                <hr />
-                                <div className='logos'>
+
+                            </div>
+                            <h4 className='email'>{users.title}</h4>
+                            <div className='bigImage'>
+                                <p className='name'>{users.body}</p>
+                            </div>
+                            <div className='reacts'>
+                                <p className='put'>💗😮👍  Lorem  and {users.reactions.likes} </p>
+                                <p className='put'>55 comments</p></div>
+                            <hr />
+                            <div className='logos'>
 
                                     <img className="like" src="/src/assets/thumps_up-removebg-preview.png" alt="Thumbs up" />
 
@@ -49,13 +51,9 @@ export default function FilterCard({ tag }) {
 
 
 
-                        </div>
+                    </div>
+                ))}
 
-
-                    ))}
-                   
-
-                </div>
             </div>
         </div >
     )
