@@ -1,107 +1,110 @@
-import React from 'react'
-import Nav from '../components/Nav'
-import { tagsData } from '../api/Tags/tagApi'
-import PostCard from '../components/PostCard';
-import { useState, useEffect } from 'react';
-import { tagsDataPost } from '../api/Tags/tagApi';
-import FilterCard from '../components/FilterCard';
-import Loaders from '../components/Loader';
-import privateAxios from "axios"
-import Footer from '../components/Footer';
-
-import Sidebar from '../components/Sidebar';
-
-
+import React, { useState, useEffect } from "react";
+import Nav from "../components/Nav";
+import { tagsData, tagsDataPost } from "../api/Tags/tagApi";
+import FilterCard from "../components/FilterCard";
+import Loaders from "../components/Loader";
+import privateAxios from "axios";
+import Sidebar from "../components/Sidebar";
 
 export default function Post() {
-    const [data, setData] = useState("");
-    const [post, setPost] = useState([])
-    const [activeCategory, setActiveCategory] = useState('all');
-    // console.log(activeCategory, "active")
-    // post tabs
-    const getDataTags = async () => {
-        const student = await tagsData();
-        // console.log("res", student)
-        const firstFive = student.slice(0, 5);
-        // console.log(firstFive, "five")
-        setData(firstFive);
-    }
-    useEffect(() => {
-        getDataTags()
-    }, [])
-    //loading
-    const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [post, setPost] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        privateAxios.interceptors.response.use(
-            (config) => {
-                setLoading(false);
-                return config;
-            },
-            (error) => {
-                return Promise.reject(error);
-            },
+  // Fetch tags
+  const getDataTags = async () => {
+    const student = await tagsData();
+    const firstFive = student.slice(0, 5);
+    setData(firstFive);
+  };
+
+  useEffect(() => {
+    getDataTags();
+  }, []);
+
+  // Axios loading interceptor
+  useEffect(() => {
+    const requestInterceptor = privateAxios.interceptors.request.use(
+      (config) => {
+        setLoading(true);
+        return config;
+      },
+      (error) => Promise.reject(error)
+    );
+
+    const responseInterceptor = privateAxios.interceptors.response.use(
+      (response) => {
+        setLoading(false);
+        return response;
+      },
+      (error) => {
+        setLoading(false);
+        return Promise.reject(error);
+      }
+    );
+
+    return () => {
+      privateAxios.interceptors.request.eject(requestInterceptor);
+      privateAxios.interceptors.response.eject(responseInterceptor);
+    };
+  }, []);
+
+  // Fetch posts
+  const getDataPost = async () => {
+    const studentPost = await tagsDataPost();
+    console.log(studentPost);
+    setPost(studentPost);
+  };
+
+  useEffect(() => {
+    getDataPost();
+  }, []);
+
+  // Filter posts
+  const filteredProducts =
+    activeCategory === "all"
+      ? post
+      : post.filter((item) =>
+          item?.tags?.some(
+            (t) => t?.toLowerCase() === activeCategory.toLowerCase()
+          )
         );
 
-        privateAxios.interceptors.request.use(
-            (config) => {
-                setLoading(true);
-                return config;
-            },
-            (error) => {
-                return Promise.reject(error);
-            },
-        );
-    }, []);
+  return (
+    <div>
+      <Nav />
 
+      <div className="content">
+        <Sidebar />
 
-    //all post
-    const getDataPost = async () => {
-        const studentPost = await tagsDataPost();
-        console.log("res", studentPost)
-
-        const a = setPost(studentPost);
-
-    }
-    useEffect(() => {
-        getDataPost()
-    }, [])
-
-    // filter tags
-    const filteredProducts = activeCategory === 'all'
-        ? post
-        : post.filter(item => item?.tags?.some((t) => t?.toLowerCase() === activeCategory?.toLowerCase()));
-    console.log(post, ",post")
-    return (
         <div>
-            <Nav />
-            <div className='content'>
-                <div>
-                    <Sidebar />
-                </div>
-                <div>
-                    <div className='tabs'>
+          <div className="tabs">
+            <button
+              onClick={() => setActiveCategory("all")}
+              className="tagButton"
+            >
+              All
+            </button>
 
-                <button onClick={() => setActiveCategory('all')} className='tagButton'>
-                    All
-                </button>
-                {Array.isArray(data) && data.map((item, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setActiveCategory(item.name)}
-                        className='tagButton'
-                    >
-                        {item.name}
-                    </button>
-                ))}
-            </div>
+            {data.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveCategory(item.name)}
+                className="tagButton"
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
 
-            <Loaders show={loading} />
-            <div className='duo'>
-                <FilterCard tag={filteredProducts} />
-                
-            </div>
+          <Loaders show={loading} />
 
-        </div >
-    )
+          <div className="duo">
+            <FilterCard tag={filteredProducts} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

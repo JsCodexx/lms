@@ -75,39 +75,39 @@ function Nav() {
 
     return (
         <div>
-            <nav className='navbar'>
+            <nav className='flex justify-between text-xl bg-white h-[70px] pb-[20px] w-full'>
 
-                <div className='top'>
-                    <img className='lahore' src='/src/assets/lms-removebg-preview.png' width={100} />
-                    <span>Learning Management System</span>
+                <div className='ml-[15px] flex'>
+                    <img className='mt-[05px]' src='/src/assets/lms-removebg-preview.png' width={100} />
+                    <span className='text-xl text-[rgba(0, 0, 0, 0.658)] ml-[20px] pt-[20px]'>Learning Management System</span>
                 </div>
-                <button class="menu-btn-1"  onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
+                <button className="hidden" onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
                 <ThemeToggle />
-                <div className='waleed'>
-                    <div className='two'>
-                        <p className='imli'>{user} neil bung</p>
-                        <p className='imli2'>(bc260213343)</p>
+                <div className='flex gap-5'>
+                    <div className='text-gray-500 flex flex-col mt-[15px] p-[0px] pb-[20px]'>
+                        <p className='mt-[20px] text-[17px]'>{user} neil bung</p>
+                        <p className='text-[17px] mt-[7px]'>(bc260213343)</p>
                     </div>
-                    <img className='profile' src="/src/assets/profileIcon.webp" alt="" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} />
+                    <img className='w-[50px] h-[50px] mt-[10px] rounded-[10px] cursor-pointer' src="/src/assets/profileIcon.webp" alt="" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} />
                     {isOpen && (
-                        <ul className="dropdown-menu">
-                            <li className='proof' onClick={handleProfile}>Profile</li>
+                        <ul className="bg-[#7c5cc4] h-[107px] p-0 m-0.5 text-start pt-0.5 pb-0.5 pl-0.5 pr-0.5 text-white text-[25px]">
+                            <li className='cursor-pointer hover:text-[greenyellow]' onClick={handleProfile}>Profile</li>
+                            <li className='cursor-pointer pt-[0px] pb-[0px] pl-[0px] pr-[0px] hover:text-[red]' onClick={handleLogOut}>Logout</li>
+                            <li className='cursor-pointer pt-[0px] pb-[0px] pl-[0px] pr-[0px] hover:text-[red]'>Settings</li>
 
-                            <li className='list'>Settings</li>
-                            <li className='list' onClick={handleLogOut}>Logout</li>
 
 
                         </ul>
                     )}
-                    <div className='one'>
+                    <div >
                         {Open &&
-                            <div className="sidebar">
+                            <div className="w-[202px] h-[807px] bg-[#282a3c] text-start">
 
-                                <ul className='menu-links'>
-                                    <button class="close-btn" id="closeBtn" onClick={close}>x</button>
-                                    <li className='love'><Link className='active' to="/">Home</Link></li>
-                                    <li className='love'><Link className='active' to="/about">Student</Link> </li>
-                                    <li className='love'><Link className='active' to="/posts"> Post</Link></li>
+                                <ul className='bg-[#282a3c] h-[807px] m-0 pt-[20px] text-start'>
+                                    <button className="text-[30px] text-black bg-[#282a3c] border-none cursor-pointer w-[50px] rounded-[10px] " id="closeBtn" onClick={close}>x</button>
+                                    <li className='mt-[5px]'><Link className='text-white no-underline font-extrabold' to="/">Home</Link></li>
+                                    <li className='mt-[5px]'><Link className='' text-white no-underline font-extrabold to="/about">Student</Link> </li>
+                                    <li className='mt-[5px]'><Link className='' text-white no-underline font-extrabold to="/posts"> Post</Link></li>
                                 </ul>
 
 

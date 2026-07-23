@@ -40,70 +40,50 @@ export default function Login() {
             setLoader(false)
         }
 
-
-
-
-
-
-
     }
 
 
     return (
-        <div className='log'>
+        <div className='bg-white h-[90vh]'>
 
 
-            <div className='sign'>
+            <div className="flex gap-8">
 
-                <div style={{ maxWidth: '400px', height: "350px", marginTop: '70px', marginLeft: "150px", padding: '20px', }}>
+                <div className='m-w[400px] h-[350px] mt-[70px] ml-[150px] p-5 '>
 
                     <img className='lamp' src="/src/assets/lms-removebg-preview.png" alt="pic" />
 
 
 
-                    <form style={{ display: 'flex', flexDirection: 'column', width: "300px", marginRight: "50px", marginTop: "60px" }} onSubmit={handleSubmit} >
-                        <div style={{ marginBottom: '15px', width: "100%", marginRight: "20px" }}>
+                    <form className='flex flex-col w-[300px] mr-[50px] mt-[60px]' onSubmit={handleSubmit} >
+                        <div className='mb-[15px] w-full mr-[20px]'>
 
                             <label>Username:</label>
                             <input
+                                className="w-full p-2.5 mt-1 rounded-[10px] border-transparent bg-[#e8f0fe] pr-[30px]"
                                 type="text"
                                 value={username}
                                 onChange={(e) => { setusername(e.target.value) }}
                                 required
 
-                                style={{ width: '100%', padding: '10px', marginTop: '5px', borderRadius: "10px", border: "transparent", backgroundColor: "#E8F0FE", paddingRightRight: "30px" }}
+
                             />
                         </div>
 
-                        <div style={{ marginBottom: '15px' }}>
+                        <div className='mb-[15px]' >
                             <label>Password:</label>
                             <input
+                                className='w-full p-2.5 mt-1 rounded-[10px] border-transparent bg-[#e8f0fe] pr-[30px]'
                                 type="password"
                                 value={password}
                                 onChange={(e) => { setpassword(e.target.value) }}
-
                                 required
-
-                                style={{ width: '100%', padding: '10px', marginTop: '5px', borderRadius: "10px", border: "transparent", backgroundColor: "#E8F0FE" }}
                             />
                         </div>
 
                         <button
+                            className='w-[40%] cursor-pointer border-none p-[10px] ml-[70px] text-[20px] text-white bg-[#875df4] font-bold rounded-[800px]'
                             type='submit'
-                            style={{
-                                width: "40%",
-                                cursor: "pointer",
-                                border: "none",
-                                padding: "10px",
-                                marginLeft: "70px",
-                                fontSize: "20px",
-                                color: "white",
-                                backgroundColor: "#875df4",
-                                fontWeight: "bold",
-                                borderRadius: "800px"
-                            }}
-
-
                         >
                             {loader ? "Loading..." : "Login"}
                         </button>
