@@ -45,7 +45,7 @@ function Home() {
     <div>
       <Nav />
       <Loaders show={loading} />
-      <div className='homeContainer'>
+      <div className='flex'>
         <Sidebar />
         <Card data={data} />
       </div>
