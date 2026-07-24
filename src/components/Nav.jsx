@@ -85,8 +85,8 @@ function Nav() {
                 <ThemeToggle />
                 <div className='flex gap-5'>
                     <div className='text-gray-500 flex flex-col mt-[15px] p-[0px] pb-[20px]'>
-                        <p className='mt-[20px] text-[17px]'>{user} neil bung</p>
-                        <p className='text-[17px] mt-[7px]'>(bc260213343)</p>
+                        <p className='mt-0 text-[17px] mr-0 ml-0 mb-0 p-0'>{user} neil bung</p>
+                        <p className='text-[17px] mt-0 mr-0 ml-0 mb-0 p-0'>(bc260213343)</p>
                     </div>
                     <img className='w-[50px] h-[50px] mt-[10px] rounded-[10px] cursor-pointer' src="/src/assets/profileIcon.webp" alt="" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} />
                     {isOpen && (

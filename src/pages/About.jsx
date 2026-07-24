@@ -70,12 +70,12 @@ function About() {
     return (
         <div>
             <Nav users={students} />
-            <div className='aboutContainer'>
+            <div className='flex gap-[20px]'>
                 <div>   <Sidebar /></div>
 
                 <div>
                     <AddStudentForm addStudent={addStudent} />
-                    <h1>Students Data </h1>
+                    <h1 className='text-transparent'>Students Data </h1>
 
                     <Loaders show={loading} />
 

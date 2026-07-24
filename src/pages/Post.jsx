@@ -66,23 +66,23 @@ export default function Post() {
     activeCategory === "all"
       ? post
       : post.filter((item) =>
-          item?.tags?.some(
-            (t) => t?.toLowerCase() === activeCategory.toLowerCase()
-          )
-        );
+        item?.tags?.some(
+          (t) => t?.toLowerCase() === activeCategory.toLowerCase()
+        )
+      );
 
   return (
     <div>
       <Nav />
 
-      <div className="content">
+      <div className="flex">
         <Sidebar />
 
-        <div>
-          <div className="tabs">
+        <div >
+          <div className="w-[90%] h-[50px] bg-[#7c5cc4] ml-[85px] mt-[35px] py-[8px] ">
             <button
               onClick={() => setActiveCategory("all")}
-              className="tagButton"
+              className="bg-[#f2f3f8] border-transparent ml-[10px] w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
             >
               All
             </button>
@@ -91,7 +91,7 @@ export default function Post() {
               <button
                 key={index}
                 onClick={() => setActiveCategory(item.name)}
-                className="tagButton"
+                className="bg-[#f2f3f8] border-transparent ml-[10px] w-[90px] px-[5px] py-[5px] rounded-[10px] cursor-pointer font-bold"
               >
                 {item.name}
               </button>
@@ -100,7 +100,7 @@ export default function Post() {
 
           <Loaders show={loading} />
 
-          <div className="duo">
+          <div className="flex flex-col">
             <FilterCard tag={filteredProducts} />
           </div>
         </div>

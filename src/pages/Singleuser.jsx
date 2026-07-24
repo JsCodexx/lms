@@ -72,25 +72,25 @@ export default function StudentPage({ user }) {
 
     return (
         <>  <Nav />
-            <h2 style={{ marginLeft: "80px" }}>Student Profile</h2>
+            <h2 className='mt-[20px] text-black font-serif text-[50px] ml-[40px] ' style={{ marginLeft: "80px" }}>Student Profile</h2>
             <Loaders show={loading} />
-            <div className='alpha'>
-                <div  className='betta'>
-                    <div className='gamma' >
-                        <button className='buttonPost' onClick={() => { handlePostButton(data.id) }}>
+            <div className='flex gap-[50px]'>
+                <div  className='shadow-[0_15px_10px_rgba(0,0,0,0.15)] bg-white w-[300px] h-[400px] ml-[80px] '>
+                    <div className='mt-[20px] flex flex-col gap-[5px] ml-[80px] ' >
+                        <button className='mr-[60px] cursor-pointer ' onClick={() => { handlePostButton(data.id) }}>
                             <img src="/src/assets/profileIcon.webp" alt="" style={{ width: "120px", paddingLeft: "0px", paddingTop: "30px" }} />
                         </button>
 
-                        <h2>{data.username}</h2>
+                        <h2 className='mt-[20px] text-black font-serif text-[40px] ml-[0px] '>{data.username}</h2>
                         <p style={{ marginTop: "0px" }}>bc260213343</p>
                         <h5 >bc260213343was@vu.edu.pk</h5>
                     </div>
                 </div>
-                <div className='delta'>
-                    <div className='elpha' >
+                <div className='p-0 w-[500px] '>
+                    <div className='shadow-[0_15px_10px_rgba(0,0,0,0.15)] bg-white w-[800px] h-[400px] ' >
 
 
-                        <div className='fifa' >
+                        <div className='flex flex-row gap-[3px] pt-[20px] pl-[30px] ' >
 
 
                             <button
@@ -119,11 +119,11 @@ export default function StudentPage({ user }) {
                         </div>
 
 
-                        <div className='giga' >
+                        <div className='border-2 border-[#ccc] pl-[80px] mt-[10px] h-[300px] ml-[30px] mr-[30px]' >
 
 
                             {currentTab === 'profile' && (
-                                <div className='man'>
+                                <div className='text-start pl-30 pt-10 text-2xl' >
                                     <h4>Name: {data.firstName}</h4>
                                     <p><b>Age:{data.age}</b></p>
                                     <h4>Gender: {data.gender}</h4>
@@ -134,7 +134,7 @@ export default function StudentPage({ user }) {
 
 
                             {currentTab === 'personal' && (
-                                <div>
+                                <div className='text-start pl-30 pt-10 text-2xl'>
                                     <h4>Name: {data.firstName}</h4>
                                     <p><b>Adress:{data.address.address}</b></p>
                                     <h4>Date of Birth:{data.birthDate}</h4>
@@ -145,7 +145,7 @@ export default function StudentPage({ user }) {
 
 
                             {currentTab === 'academic' && (
-                                <div>
+                                <div className='text-start pl-30 pt-10 text-2xl'>
                                     <h4>Matric Marks: <b>850 / 1100</b></h4>
 
                                     <h4>Intermediate: <b>950 / 1100</b></h4>

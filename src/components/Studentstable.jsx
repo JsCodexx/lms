@@ -20,35 +20,35 @@ export default function Studentstable({ user }) {
     })
     return (
         <div>
-            <input className='userData' type="text" placeholder='Enter Username' onChange={searchName} />
-            <table>
+            <input className='w-[50%] mb-[30px] ml-[40px] h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent' type="text" placeholder='Enter Username' onChange={searchName} />
+            <table className='w-full ml-[20px] m-auto border-collapse overflow-x-scroll'>
                 <thead>
-                    <tr className='header'>
-                        <th className='color'>Id</th>
-                        <th className='color'>Name</th>
-                        <th className='color'>Age</th>
-                        <th className='color'>Birth-date</th>
-                        <th className='color'>Gender</th>
-                        <th className='color'>University</th>
-                        <th className='color'>Image</th>
-                        <th className='color'>View Profile</th>
+                    <tr className=' bg-gradient-to-r from-[#875df4] to-[#892be2]'>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Id</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Name</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Age</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Birth-date</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Gender</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>University</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Image</th>
+                        <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>View Profile</th>
 
                     </tr>
                 </thead>
-                <tbody className='lower'>
+                <tbody className='bg-white'>
                     {Array.isArray(filterData) && filterData.map((users) => (
                         <tr >
-                            <td>{users.id}-</td>
-                            <td>{users.firstName}</td>
-                            <td>{users.age}</td>
-                            <td>{users.birthDate}</td>
-                            <td>{users.gender}</td>
-                            <td>{users.university}</td>
-                            <td>
+                            <td className=' border-2 border-gray-400 p-[12px]  text-left text-black'>{users.id}-</td>
+                            <td className='border-2 border-gray-400  p-[12px] text-left text-black'>{users.firstName}</td>
+                            <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.age}</td>
+                            <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.birthDate}</td>
+                            <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.gender}</td>
+                            <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.university}</td>
+                            <td className='border-2 border-gray-400 p-[12px] text-left text-black'>
                                 <img src={users.image} alt={users.firstName} width="50" />
                             </td>
-                            <td>
-                                <button onClick={() => { handleButton(users.id) }} className='viewProfile'>View</button>
+                            <td className='border-2 border-gray-400 p-[12px] text-left text-black'>
+                                <button onClick={() => { handleButton(users.id) }} className='w-[100px] cursor-pointer h-[25px] bg-[#893FE8] text-white'>View</button>
                             </td>
                         </tr>
                     ))}
