@@ -9,7 +9,7 @@ export const ThemeToggle = () => {
 
   return (
     <>
-      <button className="theme" onClick={toggleDarkMode}>
+      <button className="w-[100px] h-[30px] mt-[30px] bg-gray-800 cursor-pointer font-bold font-serif text-[15px] text-white rounded-[10px] border-2 border-gray-800" onClick={toggleDarkMode}>
         {darkMode ? " Light Mode" : " Dark Mode"}
       </button>
     </>
