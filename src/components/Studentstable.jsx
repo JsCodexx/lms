@@ -20,8 +20,8 @@ export default function Studentstable({ user }) {
     })
     return (
         <div>
-            <input className='w-[50%] mb-[30px] ml-[40px] h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent' type="text" placeholder='Enter Username' onChange={searchName} />
-            <table className='w-full ml-[20px] m-auto border-collapse overflow-x-scroll'>
+            <input className='w-[50%] mb-[30px] md:ml-[40px] h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent mt-38' type="text" placeholder='Enter Username' onChange={searchName} />
+            <table className='w-full md:ml-[20px] mb-10 m-auto border-collapse overflow-x-scroll'>
                 <thead>
                     <tr className=' bg-gradient-to-r from-[#875df4] to-[#892be2]'>
                         <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Id</th>

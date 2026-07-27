@@ -18,7 +18,8 @@ function Nav() {
     // const { id } = useParams()
     const dropdownRef = useRef(null)
     const theme = useContext(UserContext)
-    console.log("theme", theme)
+    // console.log("theme", theme)
+    console.log(open)
 
     const activeUser = localStorage.getItem("username");
     console.log(activeUser, "activeusers")
@@ -75,16 +76,16 @@ function Nav() {
 
     return (
         <div>
-            <nav className='flex justify-between text-xl bg-white h-[70px] pb-[20px] w-full'>
+            <nav className='flex justify-between text-xl bg-white h-[70px] pb-[20px]  md:w-full'>
 
                 <div className='ml-[15px] flex'>
-                    <img className='mt-[05px]' src='/src/assets/lms-removebg-preview.png' width={100} />
-                    <span className='text-xl text-[rgba(0, 0, 0, 0.658)] ml-[20px] pt-[20px]'>Learning Management System</span>
+                    <img className='mt-[10px] ' src='/src/assets/lms-removebg-preview.png' width={50} />
+                    <span className='md:text-xl text-[rgba(0, 0, 0, 0.658)] md:ml-[20px] pt-[20px] hidden md:block'>Learning Management System</span>
                 </div>
-                <button className="hidden" onClick={open}><img src="/src/assets/lines-removebg-preview.png" alt="lines" width={50} /></button>
-                <ThemeToggle />
+                <button className="md:hidden block" onClick={open}>|||</button>
+                {/* <ThemeToggle className=" hidden md:block " /> */}
                 <div className='flex gap-5'>
-                    <div className='text-gray-500 flex flex-col mt-[15px] p-[0px] pb-[20px]'>
+                    <div className='text-gray-500 flex flex-col md:mt-[15px] mt-2 p-[0px] pb-[20px]'>
                         <p className='mt-0 text-[17px] mr-0 ml-0 mb-0 p-0'>{user} neil bung</p>
                         <p className='text-[17px] mt-0 mr-0 ml-0 mb-0 p-0'>(bc260213343)</p>
                     </div>
@@ -95,23 +96,28 @@ function Nav() {
                             <li className='cursor-pointer pt-[0px] pb-[0px] pl-[0px] pr-[0px] hover:text-[red]' onClick={handleLogOut}>Logout</li>
                             <li className='cursor-pointer pt-[0px] pb-[0px] pl-[0px] pr-[0px] hover:text-[red]'>Settings</li>
 
-
-
                         </ul>
                     )}
-                    <div >
+                    <div className='relative' >
                         {Open &&
-                            <div className="w-[202px] h-[807px] bg-[#282a3c] text-start">
+                            <div className="w-[190px]  h-[807px] bg-[#282a3c] text-start absolute z-50 right-60 top-20 pl-5 mt-0">
 
                                 <ul className='bg-[#282a3c] h-[807px] m-0 pt-[20px] text-start'>
-                                    <button className="text-[30px] text-black bg-[#282a3c] border-none cursor-pointer w-[50px] rounded-[10px] " id="closeBtn" onClick={close}>x</button>
-                                    <li className='mt-[5px]'><Link className='text-white no-underline font-extrabold' to="/">Home</Link></li>
-                                    <li className='mt-[5px]'><Link className='' text-white no-underline font-extrabold to="/about">Student</Link> </li>
-                                    <li className='mt-[5px]'><Link className='' text-white no-underline font-extrabold to="/posts"> Post</Link></li>
+                                    <button className="text-[30px] text-black bg-[#282a3c] border-none cursor-pointer w-[50px] rounded-[10px] pl-30 " id="closeBtn" onClick={close}>x</button>
+                                    <div className='flex '>
+                                        <img src="src/assets/home-removebg-preview.png" alt="" width={50} />
+                                        <li className='mt-[16px] pr-10 pl-2 font-semibold'><Link className='text-white  no-underline font-bolder' to="/">Home</Link></li>
+                                    </div>
+
+                                    <div className='flex pt-5'>
+                                        <img src="src/assets/student-removebg-preview.png" alt="" width={50} />
+                                        <li className='mt-[15px] pt-0 pl-2 font-semibold'><Link className='text-white  no-underline font-bolder' to="/about">Student</Link> </li>
+                                    </div>
+                                    <div className='flex pt-5'>
+                                        <img src="src/assets/images-removebg-preview.png" alt="" width={50}/>
+                                        <li className='mt-[10px] m-0 pt-0 pl-2 font-semibold '><Link className='text-white  no-underline font-bolder' to="/posts"> Post</Link></li>
+                                    </div>
                                 </ul>
-
-
-
                             </div>}
                     </div>
 

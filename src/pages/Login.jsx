@@ -44,23 +44,23 @@ export default function Login() {
 
 
     return (
-        <div className='bg-white h-[90vh]'>
+        <div className='bg-white h-[100vh] md:h-[] '>
 
 
-            <div className="flex gap-8">
+            <div className="flex flex-col md:flex-row gap-8">
 
-                <div className='m-w[400px] h-[350px] mt-[70px] ml-[150px] p-5 '>
+                <div className='m-w[400px] h-[350px] md:mt-[70px]  md:ml-[150px] p-5 '>
 
-                    <img className='lamp' src="/src/assets/lms-removebg-preview.png" alt="pic" />
+                    <img className='ml-25' src="/src/assets/lms-removebg-preview.png" alt="pic" />
 
 
 
-                    <form className='flex flex-col w-[300px] mr-[50px] mt-[60px]' onSubmit={handleSubmit} >
+                    <form className='flex flex-col w-[300px] md:mr-[50px] md:mt-[60px]' onSubmit={handleSubmit} >
                         <div className='mb-[15px] w-full mr-[20px]'>
 
-                            <label>Username:</label>
+                            <label className='ml-10' >Username:</label>
                             <input
-                                className="w-full p-2.5 mt-1 rounded-[10px] border-transparent bg-[#e8f0fe] pr-[30px]"
+                                className="w-full p-2.5 ml-10 md:mt-1 rounded-[10px] border-transparent bg-[#e8f0fe] pr-[30px]"
                                 type="text"
                                 value={username}
                                 onChange={(e) => { setusername(e.target.value) }}
@@ -71,9 +71,9 @@ export default function Login() {
                         </div>
 
                         <div className='mb-[15px]' >
-                            <label>Password:</label>
+                            <label className='ml-10'>Password:</label>
                             <input
-                                className='w-full p-2.5 mt-1 rounded-[10px] border-transparent bg-[#e8f0fe] pr-[30px]'
+                                className='w-full p-2.5 ml-10  md:mt-1  rounded-[10px] border-transparent bg-[#e8f0fe] pr-[30px]'
                                 type="password"
                                 value={password}
                                 onChange={(e) => { setpassword(e.target.value) }}
@@ -82,7 +82,7 @@ export default function Login() {
                         </div>
 
                         <button
-                            className='w-[40%] cursor-pointer border-none p-[10px] ml-[70px] text-[20px] text-white bg-[#875df4] font-bold rounded-[800px]'
+                            className='w-[40%] cursor-pointer border-none ml-25  p-3 md:p-[10px] md:ml-[70px] text-[20px] text-white bg-[#875df4] font-bold rounded-[800px]'
                             type='submit'
                         >
                             {loader ? "Loading..." : "Login"}

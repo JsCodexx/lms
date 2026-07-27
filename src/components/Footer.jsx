@@ -1,55 +1,89 @@
-import React from 'react'
+import React from "react";
 
 export default function Footer() {
     return (
-        <div className='h-[480px] bg-[#1b2538]' >
-            <div className='flex w-full bg-[#1b2538] mt-[20px] justify-between'>
+        <footer className="bg-[#1b2538] text-white">
+            <div className="max-w-7xl mx-auto px-6 py-12">
+                <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-10 justify-between">
+                    {/* Logo Section */}
+                    <div className="flex-1  min-w-[250px] ">
+                        <img
+                            src="/src/assets/lms-removebg-preview.png"
+                            alt="LMS Logo"
+                            className="w-24 mb-5"
+                        />
 
-                {/* div1 */}
-                <div className='flex'>
-                    <div className='text-white font-mono flex flex-col gap-[20px] h-[400px] pl-[50px]'>
+                        <p className="text-gray-400 mb-5">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Excepturi, eos?
+                        </p>
 
-                        <img src='/src/assets/lms-removebg-preview.png' className='text-white text-[60px] m-0 pt-[50px]  font-serif mr-[70px]' width={100}/>
-                        <p className='mr-[80px] text-gray-500'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, eos?</p>
-                        <div className='flex'>
-                            <img src="/src/assets/facebook-removebg-preview.png" alt="" style={{ width: "60px", borderRadius: "100px" }} />
-                            <img src="/src/assets/instagram-removebg-preview.png" alt="" style={{ width: "45px", borderRadius: "30px" }} />
-                            <img src="/src/assets/twitter-removebg-preview.png" alt="" style={{ width: "65px", borderRadius: "50%" }} />
+                        <div className="flex items-center gap-3">
+                            <img
+                                src="/src/assets/facebook-removebg-preview.png"
+                                alt="Facebook"
+                                className="w-10 rounded-full cursor-pointer"
+                            />
+
+                            <img
+                                src="/src/assets/instagram-removebg-preview.png"
+                                alt="Instagram"
+                                className="w-8 rounded-full cursor-pointer"
+                            />
+
+                            <img
+                                src="/src/assets/twitter-removebg-preview.png"
+                                alt="Twitter"
+                                className="w-10 rounded-full cursor-pointer"
+                            />
                         </div>
                     </div>
-                    {/* div2 */}
-                    <div className=' flex flex-col gap-[20px] mt-[70px] w-[200px] '>
-                        <h3 className='p-0' >Usefull links</h3>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>About Us</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Our Values</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Contact Us</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Help Center</p>
+
+                    {/* Useful Links */}
+                    <div >
+                        <div className="min-w-[180px] ml-36">
+                            <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
+                            <ul className="space-y-3 text-gray-400">
+                                <li className="hover:text-white cursor-pointer">About Us</li>
+                                <li className="hover:text-white cursor-pointer">Our Values</li>
+                                <li className="hover:text-white cursor-pointer">Contact Us</li>
+                                <li className="hover:text-white cursor-pointer">Help Center</li>
+                            </ul>
+                        </div>
+
+                        {/* Company */}
+                        <div className="min-w-[180px] mt-10 ml-36">
+                            <h3 className="text-lg font-semibold mb-4">Our Company</h3>
+                            <ul className="space-y-3 text-gray-400">
+                                <li className="hover:text-white cursor-pointer">About Us</li>
+                                <li className="hover:text-white cursor-pointer">Our Values</li>
+                                <li className="hover:text-white cursor-pointer">Contact Us</li>
+                                <li className="hover:text-white cursor-pointer">Help Center</li>
+                            </ul>
+                        </div>
+
+                        {/* Get Connected */}
+                        <div className="min-w-[180px] mt-10 ml-36">
+                            <h3 className="text-lg font-semibold mb-4">Get Connected</h3>
+                            <ul className="space-y-3 text-gray-400">
+                                <li className="hover:text-white cursor-pointer">About Us</li>
+                                <li className="hover:text-white cursor-pointer">Our Values</li>
+                                <li className="hover:text-white cursor-pointer">Contact Us</li>
+                                <li className="hover:text-white cursor-pointer">Help Center</li>
+                            </ul>
+                        </div>
                     </div>
-                    {/* div3 */}
-                    <div className='flex flex-col gap-[20px] mt-[70px] w-[200px] '>
-                        <h3 className='p-0'>Our Company</h3>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>About Us</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Our Values</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Contact Us</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Help Center</p>
-                    </div>
-                    {/* div4 */}
-                    <div className='flex flex-col gap-[20px] mt-[70px] w-[200px] '>
-                        <h3 className='p-0'>Get Connectss</h3>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>About Us</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Our Values</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Contact Us</p>
-                        <p className='mr-[80px] w-[300px] text-gray-500'>Help Center</p>
-                    </div>
+
                 </div>
-
-
-
             </div>
-            <hr />
-            <h3 className='text-[15px] text-center m-0 px-[15px] py-[15px] text-gray-500'>Copyright © 2026 <span className='text-white text-[15px] cursor-pointer'>LMS</span> All Rights Reserved</h3>
 
-        </div>
+            <hr className="border-gray-700" />
 
-    )
+            <div className="py-5 text-center text-gray-400 text-sm px-4">
+                Copyright © 2026{" "}
+                <span className="text-white cursor-pointer font-medium">LMS</span>. All
+                Rights Reserved.
+            </div>
+        </footer>
+    );
 }

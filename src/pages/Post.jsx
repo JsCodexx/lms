@@ -79,10 +79,10 @@ export default function Post() {
         <Sidebar />
 
         <div >
-          <div className="w-[90%] h-[50px] bg-[#7c5cc4] ml-[85px] mt-[35px] py-[8px] ">
+          <div className="w-[98%] h-[50px] bg-[#7c5cc4] mx-2 md:ml-[85px] mt-[35px] py-[8px] ">
             <button
               onClick={() => setActiveCategory("all")}
-              className="bg-[#f2f3f8] border-transparent ml-[10px] w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
+              className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
             >
               All
             </button>
@@ -91,7 +91,7 @@ export default function Post() {
               <button
                 key={index}
                 onClick={() => setActiveCategory(item.name)}
-                className="bg-[#f2f3f8] border-transparent ml-[10px] w-[90px] px-[5px] py-[5px] rounded-[10px] cursor-pointer font-bold"
+                className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] rounded-[10px] cursor-pointer font-bold"
               >
                 {item.name}
               </button>

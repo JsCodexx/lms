@@ -28,21 +28,22 @@ export const Card = ({ data }) => {
 
 
                 {/* card-1 */}
-                <div className='mt-[40px] ml-[20px] w-[45%] h-[280px] bg-[rgba(255, 255, 255, 0.712)]    shadow-[0_15px_10px_rgba(0,0,0,0.15)]'>
+                <div className='mt-[40px] mx-2 md:w-[45%] w-full h-[280px] bg-[rgba(255, 255, 255, 0.712)]    shadow-[0_15px_10px_rgba(0,0,0,0.15)]'>
                     <div className=' bg-gradient-to-r from-[#875df4] to-[#892be2] w-full h-[70px]'>
                         <h3 className='pl-[10px] m-0 text-white pt-[20px]'>CS - Total Atendance of Students</h3>
                     </div>
                     <h1 className='text-[50px] text-center text-black font-serif m-0 ml-[30px] pt-[40px]'> Total Students:   {data}</h1>
                 </div>
                 {/* card-2 */}
-                <div className='mt-[40px] ml-[25px] w-[45%] h-[280px] bg-[ rgba(255, 255, 255, 0.712)] shadow-[0_15px_10px_rgba(0,0,0,0.15)] '>
+                <div className='mt-[40px] md:ml-[25px] md:w-[45%] w-full mx-2 h-[280px] bg-[ rgba(255, 255, 255, 0.712)] shadow-[0_15px_10px_rgba(0,0,0,0.15)] '>
                     <div className=' bg-gradient-to-r from-[#875df4] to-[#892be2] w-full h-[70px]'>
 
                         <h3 className='pl-[10px] m-0 text-white pt-[20px]'> CS - Total Active Students</h3>
                     </div>
                     <h1 className='text-[50px] text-center text-black font-serif m-0 ml-[30px] pt-[40px]'>Active Student:   158</h1>
                 </div>
-                <div className='mt-[40px] ml-[20px] w-[45%] h-[280px] bg-[rgba(255, 255, 255, 0.712)]    shadow-[0_15px_10px_rgba(0,0,0,0.15)]'>
+                {/* card-3 */}
+                <div className='mt-[40px] md:ml-[20px] md:w-[45%] w-full mx-2 h-[280px] bg-[rgba(255, 255, 255, 0.712)]    shadow-[0_15px_10px_rgba(0,0,0,0.15)]'>
                     <div className='bg-gradient-to-r from-[#875df4] to-[#892be2] w-full h-[70px]'>
                         <h3 className='pl-[10px] m-0 text-white pt-[20px]'>CS - Total Un-Active Students</h3>
                     </div>

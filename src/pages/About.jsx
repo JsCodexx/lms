@@ -75,7 +75,7 @@ function About() {
 
                 <div>
                     <AddStudentForm addStudent={addStudent} />
-                    <h1 className='text-transparent'>Students Data </h1>
+                 
 
                     <Loaders show={loading} />
 
