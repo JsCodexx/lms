@@ -5,56 +5,50 @@ import FilterCard from "../components/FilterCard";
 import Loaders from "../components/Loader";
 import privateAxios from "axios";
 import Sidebar from "../components/Sidebar";
+import { useContext } from "react";
+import { MyContext } from '../contextApi/Loader';
+import Footer from '../components/Footer';
 
 export default function Post() {
   const [data, setData] = useState([]);
   const [post, setPost] = useState([]);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [loading, setLoading] = useState(false);
+  const { loader, setLoader } = useContext(MyContext)
 
   // Fetch tags
   const getDataTags = async () => {
-    const student = await tagsData();
-    const firstFive = student.slice(0, 5);
-    setData(firstFive);
+    setLoader(true)
+    try {
+      const student = await tagsData();
+      const firstFive = student.slice(0, 5);
+      setData(firstFive);
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoader(false)
+    }
+
   };
 
   useEffect(() => {
     getDataTags();
   }, []);
 
-  // Axios loading interceptor
-  useEffect(() => {
-    const requestInterceptor = privateAxios.interceptors.request.use(
-      (config) => {
-        setLoading(true);
-        return config;
-      },
-      (error) => Promise.reject(error)
-    );
 
-    const responseInterceptor = privateAxios.interceptors.response.use(
-      (response) => {
-        setLoading(false);
-        return response;
-      },
-      (error) => {
-        setLoading(false);
-        return Promise.reject(error);
-      }
-    );
-
-    return () => {
-      privateAxios.interceptors.request.eject(requestInterceptor);
-      privateAxios.interceptors.response.eject(responseInterceptor);
-    };
-  }, []);
 
   // Fetch posts
   const getDataPost = async () => {
-    const studentPost = await tagsDataPost();
-    console.log(studentPost);
-    setPost(studentPost);
+    setLoader(true)
+    try {
+      const studentPost = await tagsDataPost();
+      console.log(studentPost);
+      setPost(studentPost);
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoader(false)
+    }
+
   };
 
   useEffect(() => {
@@ -72,39 +66,47 @@ export default function Post() {
       );
 
   return (
-    <div>
+    <div className="bg-[#F2F3F8] ">
       <Nav />
-
-      <div className="flex">
-        <Sidebar />
-
-        <div >
-          <div className="w-[98%] h-[50px] bg-[#7c5cc4] mx-2 md:ml-[85px] mt-[35px] py-[8px] ">
-            <button
-              onClick={() => setActiveCategory("all")}
-              className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
-            >
-              All
-            </button>
-
-            {data.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveCategory(item.name)}
-                className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] rounded-[10px] cursor-pointer font-bold"
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
-
-          <Loaders show={loading} />
+      {loader ? <Loaders /> :
+        <div className="flex">
 
           <div className="flex flex-col">
-            <FilterCard tag={filteredProducts} />
+            <Sidebar />
+     
+          </div>
+
+
+          <div >
+            <div className="w-[98%] h-[50px] bg-[#7c5cc4] mx-2 md:ml-[85px] mt-[35px] py-[8px] ">
+              <button
+                onClick={() => setActiveCategory("all")}
+                className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
+              >
+                All
+              </button>
+
+              {data.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveCategory(item.name)}
+                  className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] rounded-[10px] cursor-pointer font-bold"
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
+
+
+
+            {/* <div className="flex flex-col "> */}
+              <FilterCard tag={filteredProducts} />
+            {/* </div> */}
           </div>
         </div>
-      </div>
+      }
+
+
     </div>
   );
 }

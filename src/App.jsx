@@ -11,9 +11,13 @@ import { useEffect, useState } from 'react';
 import Singleuser from './pages/Singleuser.jsx';
 import Wrapper from './components/Wrapper.jsx';
 import Post from './pages/Post.jsx';
+import { MyContext } from './contextApi/Loader.jsx';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loader, setLoader] = useState(false)
+  const [user, setUser] = useState('')
 
 
   useEffect(() => {
@@ -31,29 +35,36 @@ function App() {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
-       
-        <Routes>
+      <MyContext.Provider value={{ loader, setLoader }}>
 
-          <Route
-            path="/login"
-            element={isLoggedIn ? <Navigate to="/" replace /> : <Login />}
-          />
+        <BrowserRouter>
+
+          <Routes>
+
+            <Route
+              path="/login"
+              element={isLoggedIn ? <Navigate to="/" replace /> : <Login />}
+            />
 
 
-          <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/singleuser/:id" element={<Singleuser />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/posts" element={<Post />} />
-            {/* <Route path="/contact/:id" element={<Contact />} /> */}
-          </Route>
 
-          <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} replace />} />
-        </Routes>
-      </BrowserRouter>
+            <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} />}>
+
+              <Route path="/" element={<Home />} />
+
+              <Route path="/singleuser/:id" element={<Singleuser />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/posts" element={<Post />} />
+              {/* <Route path="/contact/:id" element={<Contact />} /> */}
+            </Route>
+
+            <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} replace />} />
+          </Routes>
+        </BrowserRouter>
+
+      </MyContext.Provider>
     </ThemeProvider>
-  ); s
+  );
 }
 
 export default App;

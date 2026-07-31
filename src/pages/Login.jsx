@@ -2,12 +2,16 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginApi } from '../api/auth/loginApi';
+import { loginApi } from '../api/auth/authApi';
 import { useEffect } from 'react';
+import { UserContext } from '../contextApi/Context';
+import { useContext } from 'react';
 
 
 export default function Login() {
+    const { setUsername } = useContext(UserContext)
     const [data, setData] = useState("");
+    // const [inputValue, setInputValue] = useState('');
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
     const [loader, setLoader] = useState(false)
@@ -20,14 +24,14 @@ export default function Login() {
         try {
             e.preventDefault()
             setLoader(true)
-            // console.log(username, password, "data")
+            
             const correctData1 = await loginApi(username, password);
             const { refreshToken, ...correctData } = correctData1;
             const { user, ...userData } = correctData1
             console.log(correctData1)
 
             localStorage.setItem("token", JSON.stringify(correctData.accessToken));
-            localStorage.setItem("username", username);
+            // localStorage.setItem("username", username);
 
             sessionStorage.setItem("refreshToken", refreshToken);
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { ThemeToggle } from './ThemeToggle'
 
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState(false)
@@ -23,9 +24,11 @@ export default function Sidebar() {
     }
     return (
         <div className='flex'>
+            
             {/* sidebar */}
 
-            <div className='bg-[#282a3c] w-[100px] h-[807px] hidden md:block'>
+            <div className='bg-[#282a3c] w-[100px] h-[1330px] hidden md:block'>
+                
                 <button className="text-[20px] bg-blue h-[40px] ml-[10px] text-[#883CE8] text-center  border-none cursor-pointer px-[35px] py-[15px] rounded-[10px] w-[40px]" onClick={open}>|||</button>
                 <div className='mt-[12px] flex flex-col ml-[25px]'>
                     <img className='pt-[10px] cursor-pointer' onClick={handleHome} src="/src/assets/home-removebg-preview.png" alt="" width={50} />
@@ -33,24 +36,26 @@ export default function Sidebar() {
                     <img onClick={handlePost} className='pt-[10px] cursor-pointer' src="/src/assets/images-removebg-preview.png" alt="" width={50} />
                 </div>
             </div>
+             {/* <ThemeToggle /> */}
             {isOpen &&
                 <div className="h-[807px] bg-[#282a3c] text-start">
 
                     <ul className=' flex-col text-[25px] '>
 
                         <button className='cursor-pointer bg-transparent text-[#7c5cc4] pb-[20px] ml-[50px] text-[35px] h-[40px] mt-[10px]' onClick={close}>x</button>
-                      
-                            <li className='mt-[16px] pr-10'><Link className='text-white  no-underline font-bolder' to="/">Home</Link></li>
-                    
-                      
-                            <li className='mt-[20px] pt-0'><Link className='text-white  no-underline font-bolder' to="/about">Student</Link> </li>
-                     
-                  
-                            <li className='mt-[24px] pt-0'><Link className='text-white  no-underline font-bolder' to="/posts"> Post</Link></li>
-                  
+
+                        <li className='mt-[16px] pr-10'><Link className='text-white  no-underline font-bolder' to="/">Home</Link></li>
+
+
+                        <li className='mt-[20px] pt-0'><Link className='text-white  no-underline font-bolder' to="/about">Student</Link> </li>
+
+
+                        <li className='mt-[24px] pt-0'><Link className='text-white  no-underline font-bolder' to="/posts"> Post</Link></li>
+
 
 
                     </ul>
+                   
 
 
 

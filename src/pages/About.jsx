@@ -8,54 +8,48 @@ import Loaders from '../components/Loader'
 import privateAxios from "axios";
 import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
+import { useContext } from 'react';
+import { MyContext } from '../contextApi/Loader';
+
+
 
 
 
 
 
 function About() {
-    const [loading, setLoading] = useState(false);
+    const { loader, setLoader } = useContext(MyContext)
+
     const [users, setUsers] = useState("");
     const [students, setStudents] = useState(() => {
         const savedStudents = localStorage.getItem("students")
         return savedStudents ? JSON.parse(savedStudents) : [];
     });
-    // console.log(students)
 
-    useEffect(() => {
-        privateAxios.interceptors.response.use(
-            (config) => {
-                setLoading(false);
-                return config;
-            },
-            (error) => {
-                return Promise.reject(error);
-            },
-        );
-
-        privateAxios.interceptors.request.use(
-            (config) => {
-                setLoading(true);
-                return config;
-            },
-            (error) => {
-                return Promise.reject(error);
-            },
-        );
-    }, []);
     useEffect(() => {
         const currentData = localStorage.setItem('students', JSON.stringify(students))
         console.log(currentData, "data")
     }, [students])
 
     const getData = async () => {
-        const student = await userData();
-        // console.log("res", student)
-        setStudents(student);
+        setLoader(true)
+        try {
+            const student = await userData();
+            // console.log("res", student)
+            setStudents(student);
+        } catch (error) {
+            console.log(error)
+
+        } finally {
+            setLoader(false)
+        }
+
     }
+
     useEffect(() => {
         getData()
     }, [])
+
     const addStudent = (newStudents) => {
         console.log(newStudents)
         setStudents((prevStudents) => [
@@ -68,22 +62,25 @@ function About() {
     };
 
     return (
-        <div>
-            <Nav users={students} />
-            <div className='flex gap-[20px]'>
-                <div>   <Sidebar /></div>
+        <div className='bg-[#F2F3F8]'>
+            <div className='  w-full'><Nav users={students} /></div>
 
-                <div>
-                    <AddStudentForm addStudent={addStudent} />
-                 
+            {loader ? <Loaders /> :
+                <div className='flex'>
+                    <div >   <Sidebar /></div>
 
-                    <Loaders show={loading} />
-
-                    <Studentstable user={students} />
-                </div>
+                    <div>
+                        <AddStudentForm addStudent={addStudent} />
 
 
-            </div>
+                        {/* <Loaders show={loading} /> */}
+
+                        <Studentstable user={students} />
+                    </div>
+
+
+                </div>}
+
 
             <Footer />
 
