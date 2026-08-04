@@ -45,29 +45,26 @@ function Home() {
   // const refresh = refreshToken()
   // console.log(refresh,"unit")
   return (
-    <div className='bg-[#F2F3F8]'>
-
-      <Nav />
-
+    <>
+     <Nav />
       {loader ? <Loaders /> :
-        <div className='flex'>
-          <Sidebar />
-          <div>
-            <h1 className='ml-8 mt-4 text-2xl font-semibold'>My Course (Spring 2026)</h1>
-            <Card data={data} />
+        <div className='bg-[#f2f3f8]'>
+
+         
+
+
+          <div className='flex'>
+            <Sidebar />
+            <div>
+              <h1 className='ml-8 mt-4 text-2xl font-semibold'>My Course (Spring 2026)</h1>
+              <Card data={data} /> </div>
           </div>
+          <div>
+            <Footer />
+          </div>
+        </div >}
 
-        </div>
-      }
-
-
-
-
-      <Footer />
-
-
-
-    </div>
+    </>
   )
 }
 

@@ -9,6 +9,8 @@ body.dark-mode {
   border-radius: 50%;
   animation: l5 1s infinite linear alternate;
   margin-left: 400px;
+  margin-top: 400px;
+  margin-left: 600px;
 }
 @keyframes l5 {
   0% {
