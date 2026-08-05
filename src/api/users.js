@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { refreshToken } from "./refresh";
 
 export const userData = async () => {
   const userData = localStorage.getItem("token");
@@ -16,7 +17,7 @@ export const userData = async () => {
     // console.log(users, "users");
     return res.data.users;
   } catch (error) {
-    if (error?.res?.status === 401) {
+    if (error?.response?.status === 401) {
       const storedRefreshToken = sessionStorage.getItem("refreshToken");
       console.log(storedRefreshToken);
       if (!storedRefreshToken) {
@@ -33,13 +34,14 @@ export const userData = async () => {
       localStorage.setItem("token", newAccessToken);
       sessionStorage.setItem("refreshToken", newRefreshToken);
 
-      const res = await axios.get("https://your-api.com/users", {
+      const res = await axios.get("https://dummyjson.com/users", {
         headers: {
           Authorization: `Bearer ${newRefreshToken}`,
         },
+         withCredentials: true,
       });
 
-      return res.data.total;
+      return res.data.users;
     }
   }
 };
@@ -61,7 +63,7 @@ export const SingleUserData = async (id) => {
 
     return res.data;
   } catch (error) {
-    if (error?.res?.status === 401) {
+    if (error?.response?.status === 401) {
       const storedRefreshToken = sessionStorage.getItem("refreshToken");
       console.log(storedRefreshToken);
       if (!storedRefreshToken) {
@@ -78,41 +80,13 @@ export const SingleUserData = async (id) => {
       localStorage.setItem("token", newAccessToken);
       sessionStorage.setItem("refreshToken", newRefreshToken);
 
-      const res = await axios.get("https://your-api.com/users", {
+      const res = await axios.get(`https://dummyjson.com/users/${id}`, {
         headers: {
-          Authorization: `Bearer ${newRefreshToken}`,
+          Authorization: `Bearer ${newAccessToken}`,
         },
       });
 
       return res.data.total;
     }
-  }
-};
-
-//refresh call
-
-export const refreshToken = async () => {
-  const refreshData = sessionStorage.getItem("refreshToken");
-  console.log(refreshData);
-
-  try {
-    const refreshRes = await axios.post(
-      "https://dummyjson.com/auth/refresh",
-      {
-        refreshToken: refreshData,
-        expiresInMins: 2,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      },
-    );
-
-    console.log(refreshRes.data, "refreshRes");
-    return refreshRes.data;
-  } catch (error) {
-    console.log(error);
   }
 };

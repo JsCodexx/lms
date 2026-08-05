@@ -3,6 +3,9 @@ body.dark-mode {
   background: #121212;
   color: white;
 }
+body{
+  overflow-x: hidden;
+}
 .loader {
   width: 15px;
   aspect-ratio: 1;

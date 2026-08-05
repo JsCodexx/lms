@@ -11,12 +11,12 @@ export default function FilterCard({ tag, post }) {
 
 
       <div className="md:w-full flex flex-row flex-wrap overflow-x-auto h-270    ">
-        <div className="flex  flex-wrap md:w-full gap-5  md:ml-[50px] mx-1 md:h-300 ">
+        <div className="flex  flex-wrap md:w-full gap-5   md:ml-[150px] mx-1 md:h-300 ">
 
           {Array.isArray(tag) &&
             tag.map((users, index) => (
 
-              <div className="w-[500px] h-[500px] bg-white mt-[20px] shadow-[0_15px_10px_rgba(0,0,0,0.15)]" key={users.id || index}>
+              <div className="md:w-[500px] h-[500px] bg-white  mt-[20px] shadow-[0_15px_10px_rgba(0,0,0,0.15)]" key={users.id || index}>
                 <div className="w-full h-[60px] bg-[#4866af]">
                   <h3 className="font-bold pl-[30px] text-blue-400 text-[25px] pt-2">Facebook</h3>
 
