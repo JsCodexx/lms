@@ -26,8 +26,8 @@ export default function AddStudentForm({ addStudent }) {
 
     return (
         <>
-            <div onClick={() => { setIsOpen(true) }} className='md:flex ml-8 md:ml-5  md:mt-4  cursor-pointer bg-white w-50 pl-5'>
-                <h3 className='md:mt-1 md:text-2xl font-medium text-black font-serif  ' >Add Student</h3>
+            <div onClick={() => { setIsOpen(true) }} className='flex ml-90 md:ml-5   md:mt-4  cursor-pointer bg-white w-50 pl-5'>
+                <h3 className='mt-1 text-2xl font-medium text-black font-serif  ' >Add Student</h3>
                 <button className='cursor-pointer  mt-1'><img src="/src/assets/addIcon-removebg-preview.png" alt="add" width={30} /></button>
             </div>
             {isOpen && (

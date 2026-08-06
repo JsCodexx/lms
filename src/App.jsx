@@ -48,7 +48,7 @@ function App() {
 
 
 
-            <Route element={<ProtectedRoutes isLoggedIn={isLoggedIn} />}>
+            <Route element={<ProtectedRoutes  />}>
 
               <Route path="/" element={<Home />} />
 

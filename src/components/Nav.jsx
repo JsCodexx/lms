@@ -81,15 +81,15 @@ function Nav() {
 
     return (
         <div className='max-w-full h-full '>
-            <div className='flex justify-between w-full' >
+            <div className='md:flex justify-between min-w-full' >
                 <nav className='flex justify-between  text-xl bg-white h-[70px] pb-[20px]  md:w-full  '>
 
                     <div className='md:ml-[40px] flex'>
                         <img className='mt-[10px] ml-5 md:ml-15 ' src='/src/assets/lms-removebg-preview.png' width={50} />
                         <span className='md:text-2xl font-semibold text-[rgba(0, 0, 0, 0.658)] md:ml-[20px]  pt-[20px] hidden md:block'>Learning Management System</span>
                     </div>
-                    <button className="md:hidden block" onClick={open}>|||</button>
-                    {/* <ThemeToggle className=" hidden md:block " /> */}
+                    <button className="md:hidden  block" onClick={open}>|||</button>
+              
                     <div className='flex gap-5'>
                         <div className='text-gray-500 flex flex-col md:mt-[15px] mt-2 p-[0px] pb-[20px]'>
                             <p className='mt-0 text-[17px] mr-0 ml-0 mb-0 p-0'>{user} neil bung</p>
