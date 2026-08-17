@@ -63,7 +63,7 @@ export default function StudentPage({ user }) {
 
     return (
         <>  <Nav />
-            {loader ? <Loaders /> :
+            {loader ? <Loaders /> : <>
                 <div className='bg-[#f3f2f8]'>
                     <h1 className='ml-12 pt-10 text-2xl font-semibold'>Student Profile</h1>
 
@@ -119,10 +119,10 @@ export default function StudentPage({ user }) {
 
                                     {currentTab === 'profile' && (
                                         <div className='text-start md:pl-30 pt-10 text-2xl' >
-                                            <h4>Name: {data.firstName}</h4>
-                                            <p><b>Age:{data.age}</b></p>
-                                            <h4>Gender: {data.gender}</h4>
-                                            <p><b>Password:{data.password
+                                            <h4 >Name: {data.firstName}</h4>
+                                            <p className='pt-3'><b>Age:{data.age}</b></p>
+                                            <h4 className='pt-3'>Gender: {data.gender}</h4>
+                                            <p className='pt-3'><b>Password:{data.password
                                             }</b></p>
                                         </div>
                                     )}
@@ -131,9 +131,9 @@ export default function StudentPage({ user }) {
                                     {currentTab === 'personal' && (
                                         <div className='md:text-start  md:pl-30 pt-10 text-2xl'>
                                             <h4>Name: {data.firstName}</h4>
-                                            <p><b>Adress:{data.address.address}</b></p>
-                                            <h4>Date of Birth:{data.birthDate}</h4>
-                                            <p ><b >Phone:{data.phone
+                                            <p className='pt-3'><b>Adress:{data.address.address}</b></p>
+                                            <h4 className='pt-3'>Date of Birth:{data.birthDate}</h4>
+                                            <p className='pt-3'><b >Phone:{data.phone
                                             }</b></p>
                                         </div>
                                     )}
@@ -141,10 +141,10 @@ export default function StudentPage({ user }) {
 
                                     {currentTab === 'academic' && (
                                         <div className='text-start md:pl-30 pt-10 text-2xl'>
-                                            <h4>Matric Marks: <b>850 / 1100</b></h4>
+                                            <h4 className='pt-3'>Matric Marks: <b>850 / 1100</b></h4>
 
-                                            <h4>Intermediate: <b>950 / 1100</b></h4>
-                                            <h4>Subject:<b>ICS</b></h4>
+                                            <h4 className='pt-3'>Intermediate: <b>950 / 1100</b></h4>
+                                            <h4 className='pt-3'>Subject:<b>ICS</b></h4>
                                         </div>
 
                                     )}
@@ -154,13 +154,12 @@ export default function StudentPage({ user }) {
                         </div>
 
                     </div>
-                </div>}
-            <div className=' bg-[#F2F3F8] '>
+                </div>
+                <div>
+                    <Footer />
+                </div>
+            </>}
 
-                {/* <Loaders show={loading} /> */}
-
-                <Footer />
-            </div>
 
         </>
     );

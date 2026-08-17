@@ -62,29 +62,38 @@ function About() {
     };
 
     return (
-        <div className='bg-[#F2F3F8]'>
-            <div className='  w-full'><Nav users={students} /></div>
-
+        <>
+         <div className='  w-full'><Nav users={students} /></div>
             {loader ? <Loaders /> :
-                <div className='flex'>
-                    <div >   <Sidebar /></div>
-
-                    <div>
-                        <AddStudentForm addStudent={addStudent} />
+                <div className='bg-[#F2F3F8]'>
+                   
 
 
-                        {/* <Loaders show={loading} /> */}
+                    <div className='flex'>
+                        <div className='h-auto' >   <Sidebar /></div>
+                        <div>
+                            <h1 className='mt-10 ml-100 text-4xl text-purple-600 font-bold'>Virtual Students Data</h1>
+                            <div className='mt-20'>
+                                {/* <h1 >Students Data</h1> */}
+                                <AddStudentForm addStudent={addStudent} />
+                                <Studentstable user={students} />
+                            </div>
+                        </div>
 
-                        <Studentstable user={students} />
+
+
                     </div>
+                    <div>
+                        <Footer />
+                    </div>
+                </div>
+            }
 
 
-                </div>}
 
 
-            <Footer />
 
-        </div>
+        </>
     )
 }
 

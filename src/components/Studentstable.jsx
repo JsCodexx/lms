@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 export default function Studentstable({ user }) {
     const [search, setSearch] = useState('')
+    const [recentTab, setRecentTab] = useState("1")
     // console.log(user, "use")
     const navigate = useNavigate()
     function handleButton(user) {
@@ -18,11 +19,15 @@ export default function Studentstable({ user }) {
         // console.log(userName)
         return userName?.includes(searched)
     })
+    const firstTen = filterData.slice(0, 10)
+    console.log(firstTen, "ten")
+    const secondTen = filterData.slice(10, 20)
+    const thirdTen = [...filterData.slice(20)]
     return (
-        <div>
-            <input className='w-[50%] mb-[30px] md:ml-[40px] h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent mt-38' type="text" placeholder='Enter Username' onChange={searchName} />
-            <div className='md:flex-1 md:overflow-x-auto md:overflow-x-hidden md:h-270 md:ml-5'>
-                <table className='w-full md:ml-[20px] mb-10 m-auto border-collapse overflow-x-scroll'>
+        <div >
+            <input className='w-[50%] mb-[30px] md:ml-[40px] h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent mt-10' type="text" placeholder='Enter Username' onChange={searchName} />
+            <div className='md:flex-1 md:h-auto md:ml-5'>
+                <table className='w-full md:ml-[20px]    mb-5 m-auto border-collapse '>
                     <thead>
                         <tr className=' bg-gradient-to-r from-[#875df4] to-[#892be2]'>
                             <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Id</th>
@@ -36,8 +41,46 @@ export default function Studentstable({ user }) {
 
                         </tr>
                     </thead>
-                    <tbody className='bg-white'>
-                        {Array.isArray(filterData) && filterData.map((users) => (
+                    <tbody className='bg-white '>
+                        {recentTab === "1" && Array.isArray(firstTen) && firstTen.map((users) => (
+                            <tr >
+                                <td className=' border-2 border-gray-400 p-[12px]  text-left text-black'>{users.id}-</td>
+                                <td className='border-2 border-gray-400  p-[12px] text-left text-black'>{users.firstName}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.age}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.birthDate}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.gender}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.university}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>
+                                    <img src={users.image} alt={users.firstName} width="50" />
+                                </td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>
+                                    <button onClick={() => { handleButton(users.id) }} className='w-[100px] cursor-pointer h-[25px] bg-[#893FE8] text-white'>View</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                    {/* second */}
+                    <tbody className='bg-white '>
+                        {recentTab === "2" && Array.isArray(secondTen) && secondTen.map((users) => (
+                            <tr >
+                                <td className=' border-2 border-gray-400 p-[12px]  text-left text-black'>{users.id}-</td>
+                                <td className='border-2 border-gray-400  p-[12px] text-left text-black'>{users.firstName}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.age}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.birthDate}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.gender}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>{users.university}</td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>
+                                    <img src={users.image} alt={users.firstName} width="50" />
+                                </td>
+                                <td className='border-2 border-gray-400 p-[12px] text-left text-black'>
+                                    <button onClick={() => { handleButton(users.id) }} className='w-[100px] cursor-pointer h-[25px] bg-[#893FE8] text-white'>View</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                    {/* third */}
+                    <tbody className='bg-white '>
+                        {recentTab === "3" && Array.isArray(thirdTen) && thirdTen.map((users) => (
                             <tr >
                                 <td className=' border-2 border-gray-400 p-[12px]  text-left text-black'>{users.id}-</td>
                                 <td className='border-2 border-gray-400  p-[12px] text-left text-black'>{users.firstName}</td>
@@ -55,6 +98,11 @@ export default function Studentstable({ user }) {
                         ))}
                     </tbody>
                 </table>
+                <div className='flex gap-5 ml-110 '>
+                    <button className='list-none border-2 pl-2 text-white pr-2 font-bold bg-purple-700 border-purple-600 cursor-pointer ' onClick={() => { setRecentTab("1") }}>1</button>
+                    <button className='list-none border-2 pl-2 text-white pr-2 font-bold bg-purple-700 border-purple-600 cursor-pointer' onClick={() => { setRecentTab("2") }}>2</button>
+                    <button className='list-none border-2 pl-2  text-white  pr-2 font-bold bg-purple-700 border-purple-600 cursor-pointer' onClick={() => { setRecentTab("3") }}>3</button>
+                </div>
             </div>
 
         </div>

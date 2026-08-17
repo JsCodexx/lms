@@ -1,16 +1,17 @@
 import React from "react";
 import Loaders from "../components/Loader.jsx";
 
-export default function FilterCard({ tag }) {
-  console.log(tag);
+export default function FilterCard({ tag, post }) {
+  console.log(tag, "tag");
+
 
   return (
     <>
       {/* <Loaders /> */}
 
 
-      <div className="md:w-[700px] flex flex-wrap  ">
-        <div className="flex flex-wrap w-105 md:w-[700px] md:ml-[145px] mx-1 md:h-300 overflow-y-auto ">
+      <div className="md:w-full flex flex-row flex-wrap overflow-x-auto h-270    ">
+        <div className="flex  flex-wrap md:w-full gap-5  md:ml-[50px] mx-1 md:h-300 ">
 
           {Array.isArray(tag) &&
             tag.map((users, index) => (

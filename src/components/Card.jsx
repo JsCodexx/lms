@@ -50,7 +50,7 @@ export const Card = ({ data }) => {
 
         <div className='flex flex-wrap w-full'>
 
-            <div className='md:w-full md:flex w-105 '>
+            <div className='md:w-full md:flex w-105'>
                 {/* card-1 */}
                 <div className='mt-[40px] mx-2 md:w-[45%] w-full h-[280px] bg-[rgba(255, 255, 255, 0.712)]    shadow-[0_15px_10px_rgba(0,0,0,0.15)]'>
                     <div className=' bg-gradient-to-r from-[#875df4] to-[#892be2] w-full h-[70px]'>
