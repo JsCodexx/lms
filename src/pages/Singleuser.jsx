@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
 import { useParams } from 'react-router-dom';
-import { refreshToken, SingleUserData } from '../api/users';
+import { SingleUserData } from '../api/users';
+import { refreshToken } from '../api/refresh';
 import Loaders from '../components/Loader';
 import privateAxios from "axios"
 import Footer from '../components/Footer';
@@ -46,8 +47,6 @@ export default function StudentPage({ user }) {
         } finally {
             setLoader(false)
         }
-
-
     }
 
     useEffect(() => {
@@ -60,16 +59,25 @@ export default function StudentPage({ user }) {
     function handlePostButton(user) {
         navigate(`/contact/${user}`)
     }
-
+    function GoBack() {
+        navigate("/about")
+    }
     return (
-        <>  <Nav />
+        <div className=' max-h-100vh '>
+
+            <Nav />
             {loader ? <Loaders /> : <>
-                <div className='bg-[#f3f2f8]'>
-                    <h1 className='ml-12 pt-10 text-2xl font-semibold'>Student Profile</h1>
+                <div className='bg-[#f3f2f8] max-w-full h-full'>
+                    <div className='flex justify-between'>
+                        <h1 className='ml-12 pt-10 text-2xl font-semibold '>Student Profile</h1>
+                        <button onClick={GoBack} className='hover:text-gray-500 mr-20 mt-13 border-2 px-5 py-0 border-purple-800 bg-purple-800 text-white cursor-pointer font-bold'>Back</button>
+                    </div>
 
-                    <div className='md:flex md:flex-row flex-col gap-[50px]  '>
 
-                        <div className='shadow-[0_15px_10px_rgba(0,0,0,0.15)] bg-white md:w-[300px] md:mt-10 w-103 h-[400px] md:ml-[40px] mx-2 '>
+                    <div className='md:flex md:flex-row flex-col gap-[50px] w-full     '>
+
+
+                        <div className='shadow-[0_15px_10px_rgba(0,0,0,0.15)] bg-white md:w-[300px] md:mt-10 w-103 h-[400px] md:ml-20 flex flex-col   mx-2 '>
                             <div className='mt-[20px] flex flex-col gap-[5px] ml-4 ' >
 
                                 <button className='mr-[60px] ml-4  cursor-pointer ' onClick={() => { handlePostButton(data.id) }}>
@@ -152,16 +160,16 @@ export default function StudentPage({ user }) {
 
                             </div>
                         </div>
-
                     </div>
+
                 </div>
-                <div>
-                    <Footer />
-                </div>
+
             </>}
+            <div>
+                <Footer />
+            </div>
 
-
-        </>
+        </div>
     );
 
 }

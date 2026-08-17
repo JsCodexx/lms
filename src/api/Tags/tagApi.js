@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 
+import { refreshToken } from "../refresh";
+
 // tags tabs
 export const tagsData = async () => {
   const userData = localStorage.getItem("token");

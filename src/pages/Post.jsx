@@ -66,25 +66,27 @@ export default function Post() {
       );
 
   return (
-    <>
-    <Nav />
+    <div className='relative  max-h-full '>
+
+      <Nav />
       {loader ? <Loaders /> :
-        <div className="bg-[#F2F3F8]  ">
-          
+        <div className="bg-[#F2F3F8] max-w-full h-full ">
+
 
           <div className="flex">
 
             <div className="flex flex-col">
-              <Sidebar />
+              <div className="absolute top-0">  <Sidebar /></div>
+
 
             </div>
 
 
-            <div >
-              <div className="w-[87%] h-[50px] bg-[#7c5cc4] mx-2 md:ml-[55px] mt-[35px] py-[10px] flex justify-evenly  ">
+            <div className="w-full flex flex-col justify-center items-center" >
+              <div className="md:w-[87%] md:h-[50px] w-105 bg-[#7c5cc4] md:mx-2 md:ml-[120px] md:mt-[35px] py-[10px] flex justify-evenly  ">
                 <button
                   onClick={() => setActiveCategory("all")}
-                  className="bg-[#f2f3f8] border-transparent md:h-8 ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
+                  className="bg-[#f2f3f8] border-transparent md:h-8  md:ml-[10px] w-15 md:w-[90px] md:px-[5px] md:py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
                 >
                   All
                 </button>
@@ -93,7 +95,7 @@ export default function Post() {
                   <button
                     key={index}
                     onClick={() => setActiveCategory(item.name)}
-                    className="bg-[#f2f3f8] border-transparent ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] rounded-[10px] cursor-pointer font-bold"
+                    className="bg-[#f2f3f8] border-transparent md:h-8 ml-2 md:ml-[10px] w-15 md:w-[90px] px-[5px] py-[5px] mb-[10px] rounded-[10px] cursor-pointer font-bold"
                   >
                     {item.name}
                   </button>
@@ -105,11 +107,15 @@ export default function Post() {
               {/* <div className="flex flex-col "> */}
               <FilterCard post={post} tag={filteredProducts} />
               {/* </div> */}
+
             </div>
+
           </div>
+
         </div>
       }
-    </>
+      <Footer />
+    </div>
 
 
   );

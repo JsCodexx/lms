@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
     return (
         <footer className="bg-[#1b2538] text-white mt-4">
-            <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className="max-w-1xl mx-auto px-6 py-12">
                 <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-10 justify-between">
                     {/* Logo Section */}
                     <div className="flex-1  min-w-[250px] ">

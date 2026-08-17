@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import { refreshToken } from "./refresh";
+
 export const searchUser = async () => {
   try {
     const res = await axios.get("https://dummyjson.com/users/search?q=John");

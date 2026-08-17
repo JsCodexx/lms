@@ -1,5 +1,6 @@
 import axios from "axios";
-import { refreshToken } from "./users";
+
+import { refreshToken } from "./refresh";
 
 export const studentData = async () => {
   try {
@@ -21,7 +22,7 @@ export const studentData = async () => {
         return;
       }
       const data = await refreshToken(storedRefreshToken);
-
+      console.log(data);
       const newAccessToken = data?.accessToken || data?.token;
       const newRefreshToken = data?.refreshToken || data?.token;
       console.log(newAccessToken, "new");
