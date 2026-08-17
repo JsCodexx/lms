@@ -6,12 +6,15 @@ export default function FilterCard({ tag }) {
 
   return (
     <>
-      <Loaders />
+      {/* <Loaders /> */}
 
-      <div className="w-[300px] flex flex-wrap ">
-        <div className="flex flex-wrap w-105 md:w-[500px] md:ml-[145px] mx-1 ">
+
+      <div className="md:w-[700px] flex flex-wrap  ">
+        <div className="flex flex-wrap w-105 md:w-[700px] md:ml-[145px] mx-1 md:h-300 overflow-y-auto ">
+
           {Array.isArray(tag) &&
             tag.map((users, index) => (
+
               <div className="w-[500px] h-[500px] bg-white mt-[20px] shadow-[0_15px_10px_rgba(0,0,0,0.15)]" key={users.id || index}>
                 <div className="w-full h-[60px] bg-[#4866af]">
                   <h3 className="font-bold pl-[30px] text-blue-400 text-[25px] pt-2">Facebook</h3>
@@ -31,11 +34,11 @@ export default function FilterCard({ tag }) {
 
                   <h4 className="ml-[30px] text-[20px] mt-[10px] ">"{users.title}"</h4>
 
-                  <div className="w-full h-[200px]  border-green-700 bg-[#4866af]">
-                    <p className="p-0 mt-[10px] mr-[20px]  text-center">{users.body}</p>
+                  <div className="w-full h-[180px]  border-green-700 bg-[#4866af]">
+                    <p className="p-0 mt-[10px] mr-[20px] text-sm  text-center">{users.body}</p>
                   </div>
 
-                  <div className="flex justify-around  pb-[20px] ">
+                  <div className="flex justify-around  pb-[10px] ">
                     <p className="text-[15px] mt-[15px]">
                       💗😮👍 Lorem and {users.reactions?.likes}
                     </p>
@@ -65,9 +68,14 @@ export default function FilterCard({ tag }) {
                   </div>
                 </div>
               </div>
+
+
+
             ))}
         </div>
+
       </div>
+
     </>
   );
 }

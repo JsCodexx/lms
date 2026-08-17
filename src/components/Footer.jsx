@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#1b2538] text-white">
+        <footer className="bg-[#1b2538] text-white mt-4">
             <div className="max-w-7xl mx-auto px-6 py-12">
                 <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-10 justify-between">
                     {/* Logo Section */}
@@ -40,8 +40,8 @@ export default function Footer() {
                     </div>
 
                     {/* Useful Links */}
-                    <div >
-                        <div className="min-w-[180px] ml-36">
+                    <div className="md:flex  ">
+                        <div className="min-w-[170px] ml-36 ">
                             <h3 className="text-lg font-semibold mb-4">Useful Links</h3>
                             <ul className="space-y-3 text-gray-400">
                                 <li className="hover:text-white cursor-pointer">About Us</li>
@@ -52,7 +52,7 @@ export default function Footer() {
                         </div>
 
                         {/* Company */}
-                        <div className="min-w-[180px] mt-10 ml-36">
+                        <div className="min-w-[170px]  ml-36">
                             <h3 className="text-lg font-semibold mb-4">Our Company</h3>
                             <ul className="space-y-3 text-gray-400">
                                 <li className="hover:text-white cursor-pointer">About Us</li>
@@ -63,7 +63,7 @@ export default function Footer() {
                         </div>
 
                         {/* Get Connected */}
-                        <div className="min-w-[180px] mt-10 ml-36">
+                        <div className="min-w-[170px]  ml-36">
                             <h3 className="text-lg font-semibold mb-4">Get Connected</h3>
                             <ul className="space-y-3 text-gray-400">
                                 <li className="hover:text-white cursor-pointer">About Us</li>

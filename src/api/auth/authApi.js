@@ -8,7 +8,7 @@ export const loginApi = async (username, password) => {
       {
         username: username,
         password: password,
-        expiresInMins: 50,
+        expiresInMins: 1,
       },
       {
         headers: {
@@ -20,7 +20,6 @@ export const loginApi = async (username, password) => {
 
     console.log(res, "js res");
     return res.data;
-    
   } catch (err) {
     alert("wrong Password & Email");
     throw err;

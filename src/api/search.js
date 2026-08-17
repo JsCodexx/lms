@@ -1,17 +1,13 @@
 import axios from "axios";
-import { refreshToken } from "./users";
 
-export const studentData = async () => {
+export const searchUser = async () => {
   try {
-    const token = localStorage.getItem("token");
-
-    const res = await axios.get("https://dummyjson.com/users", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log(res.data.total);
-    return res.data.total;
+    const res = await axios.get("https://dummyjson.com/users/search?q=John");
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`;
+    }
+    console.log(res, "user");
+    return res.data.users;
   } catch (error) {
     if (error?.res?.status === 401) {
       const storedRefreshToken = sessionStorage.getItem("refreshToken");

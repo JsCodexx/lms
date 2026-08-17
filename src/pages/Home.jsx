@@ -6,49 +6,62 @@ import Loaders from '../components/Loader';
 import privateAxios from "axios";
 import Footer from '../components/Footer';
 import Sidebar from '../components/Sidebar';
+import { useContext } from 'react';
+import { MyContext } from '../contextApi/Loader';
+// import { refreshToken } from '../api/users';
+
+
 
 function Home() {
-  const [loading, setLoading] = useState(false);
+  const { loader, setLoader } = useContext(MyContext)
+  console.log(loader)
 
-  useEffect(() => {
-    privateAxios.interceptors.response.use(
-      (config) => {
-        setLoading(false);
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
-      },
-    );
-
-    privateAxios.interceptors.request.use(
-      (config) => {
-        setLoading(true);
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
-      },
-    );
-  }, []);
   const [data, setData] = useState("");
+  console.log(data, "data")
 
   const getData = async () => {
-    const student = await studentData();
-    console.log("res", student)
-    setData(student);
+
+    setLoader(true)
+    try {
+
+      const student = await studentData();
+      console.log("res", student)
+      setData(student);
+
+
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setLoader(false)
+    }
+
+
   }
+
   useEffect(() => {
     getData()
   }, [])
+
+  // const refresh = refreshToken()
+  // console.log(refresh,"unit")
   return (
-    <div>
+    <div className='bg-[#F2F3F8]'>
+
       <Nav />
-      <Loaders show={loading} />
-      <div className='flex'>
-        <Sidebar />
-        <Card data={data} />
-      </div>
+
+      {loader ? <Loaders /> :
+        <div className='flex'>
+          <Sidebar />
+          <div>
+            <h1 className='ml-8 mt-4 text-2xl font-semibold'>My Course (Spring 2026)</h1>
+            <Card data={data} />
+          </div>
+
+        </div>
+      }
+
+
+
 
       <Footer />
 
