@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './pages/Home';
 import About from './pages/About.jsx';
-import Contact from './pages/Contact.jsx';
+// import Contact from './pages/Contact.jsx';
 import { ThemeProvider } from './contextApi/Context';
 import { ThemeToggle } from './components/ThemeToggle';
 import Login from './pages/Login';
@@ -46,7 +46,7 @@ function App() {
             <Route path="/singleuser/:id" element={<Singleuser />} />
             <Route path="/about" element={<About />} />
             <Route path="/posts" element={<Post />} />
-            <Route path="/contact/:id" element={<Contact />} />
+            {/* <Route path="/contact/:id" element={<Contact />} /> */}
           </Route>
 
           <Route path="*" element={<Navigate to={isLoggedIn ? "/" : "/login"} replace />} />
