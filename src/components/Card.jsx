@@ -49,7 +49,7 @@ export const Card = ({ data }) => {
     return (
         <>
             <div className='flex flex-wrap max-w-full h-auto   md:mr-25  '>
-                <div className='flex flex-col   '>
+                <div className='flex flex-col md:ml-15   '>
 
                     <div className='md:min-w-[1100px] md:flex w-105 md:ml-25'>
                         {/* card-1 */}

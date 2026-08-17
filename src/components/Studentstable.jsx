@@ -25,10 +25,10 @@ export default function Studentstable({ user }) {
     const thirdTen = [...filterData.slice(20)]
     return (
         <div  >
-            <input className='w-[50%] mb-[30px] md:ml-[20px] ml-8 h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent mt-10' type="text" placeholder='Enter Username' onChange={searchName} />
+            <input className='w-[35%] md:w-[50%] mb-[30px] md:ml-[20px] ml-90 h-[25px] rounded-[2px] border-2 border-[#7c5cc4] bg-transparent mt-10' type="text" placeholder='Enter Username' onChange={searchName} />
             <div className='md:flex-1 md:h-auto md:ml-5  '>
                 <div >
-                    <table className='md:w-full  md:ml-[0px] mb-5 m-auto border-collapse '>
+                    <table className='md:w-full ml-90  md:ml-[0px] mb-5 m-auto border-collapse '>
                         <thead >
                             <tr className=' bg-gradient-to-r from-[#875df4] to-[#892be2]'>
                                 <th className='text-white font-bold text-[23px] font-mono border-2 border-gray-400  p-[12px] text-left'>Id</th>

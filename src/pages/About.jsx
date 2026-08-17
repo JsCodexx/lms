@@ -65,7 +65,7 @@ function About() {
                     <div className='flex'>
                         <div className='h-auto absolute top-0 ' >   <Sidebar /></div>
                         <div className='w-full flex flex-col justify-center items-center'>
-                            <h1 className='mt-10 ml-7 md:ml-100 text-4xl text-purple-600 font-bold'>Virtual Students Data</h1>
+                            <h1 className='mt-10 ml-7 md:ml-0 text-4xl text-purple-600 font-bold'>Virtual Students Data</h1>
                             <div className='mt-20'>
                                 {/* <h1 >Students Data</h1> */}
                                 <AddStudentForm addStudent={addStudent} />
